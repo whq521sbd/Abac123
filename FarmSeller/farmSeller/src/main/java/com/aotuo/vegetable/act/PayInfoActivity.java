@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class PayInfoActivity extends BaseActivity implements View.OnClickListener{
+public class PayInfoActivity extends BaseActivity implements View.OnClickListener {
     private TitleView titleView;
     private Button bt_payreturn;
     private PayResultAdapter adapter;
@@ -71,21 +71,47 @@ public class PayInfoActivity extends BaseActivity implements View.OnClickListene
                     }
                     if (re != null) {
                         list.add(re);
+                        sendData(re);
                     }
                 }
-                index ++;
-                if(index < num.size()){
+                index++;
+                if (index < num.size()) {
                     getData();
                 } else {
                     adapter.notifyDataSetChanged();
+                }
+            } else if (msg.what == 3) {
+                if (msg.arg1 > 0) {
+
                 }
             }
         }
     };
 
+    /**
+     * 参数：Token,Content,UserNum
+     */
+    private void sendData(RecordEntity re) {
+        if (re == null)
+            return;
+        StringBuilder content = new StringBuilder();
+        content.append("订单：");
+        content.append(re.getNum());
+        content.append(",已由买家<");
+        content.append(re.getBuyer());
+        content.append(">付款！");
+
+        HashMap<String, Object> param = new HashMap<String, Object>();
+        param.put("Token", CommonTools.getToken(PayInfoActivity.this));
+        param.put("Content", content.toString());
+        param.put("UserNum", re.getSellerNum());
+
+        MainActivity.postRequest(3, sHandler, "/UserA/SendTalkRec", param);
+    }
+
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.bt_payreturn:
                 finish();
                 break;

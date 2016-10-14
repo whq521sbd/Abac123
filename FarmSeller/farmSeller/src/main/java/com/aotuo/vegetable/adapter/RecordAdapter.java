@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aotuo.vegetable.R;
-import com.aotuo.vegetable.act.MainActivity;
 import com.aotuo.vegetable.entity.RecordEntity;
 import com.aotuo.vegetable.util.CommonTools;
 import com.aotuo.vegetable.util.FinalContent;
@@ -54,7 +53,7 @@ public class RecordAdapter extends BaseAdapter {
 		ViewHolder vh = new ViewHolder();
 		if (v == null) {
 			v = inflater.inflate(R.layout.recorder_list_item, null);
-			vh.txtDate = (TextView) v.findViewById(R.id.txtDate);
+			//vh.txtDate = (TextView) v.findViewById(R.id.txtDate);
 			vh.name = (TextView) v.findViewById(R.id.name);
 			vh.price = (TextView) v.findViewById(R.id.price);
 			vh.weight = (TextView) v.findViewById(R.id.weight);
@@ -62,7 +61,7 @@ public class RecordAdapter extends BaseAdapter {
 			vh.log = (TextView) v.findViewById(R.id.log);
 			vh.booth = (TextView) v.findViewById(R.id.booth);
 			vh.address = (TextView) v.findViewById(R.id.address);
-			vh.state = (TextView) v.findViewById(R.id.state);
+			//vh.state = (TextView) v.findViewById(R.id.state);
 			vh.logRate = (TextView) v.findViewById(R.id.logRate);
 			vh.goodsTotal = (TextView) v.findViewById(R.id.goodsTotal);
 			vh.distance = (TextView) v.findViewById(R.id.distance);
@@ -77,14 +76,14 @@ public class RecordAdapter extends BaseAdapter {
 			vh = (ViewHolder) v.getTag();
 		}
 		RecordEntity re = list.get(arg0);
-		vh.txtDate.setText(re.getTime());
+		//vh.txtDate.setText(re.getTime());
 		vh.name.setText(re.getGoodsTitle());
 		vh.price.setText(re.getPrice() + "元/公斤");
 		vh.weight.setText(re.getWeight() + "公斤");
 
 		vh.booth.setText(re.getBooth());
 		vh.address.setText(re.getMarket());
-		vh.state.setText(re.getState());
+		//vh.state.setText(re.getState());
 
 		vh.log.setText("运费：  " + re.getLogMoney() + "元");
 		vh.logRate.setText(re.getLogRate()+"/公斤公里");
