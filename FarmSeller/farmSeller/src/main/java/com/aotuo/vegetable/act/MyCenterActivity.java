@@ -1,0 +1,232 @@
+package com.aotuo.vegetable.act;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.aotuo.vegetable.R;
+import com.aotuo.vegetable.base.BaseActivity;
+import com.aotuo.vegetable.entity.UserEntity;
+import com.aotuo.vegetable.util.CommonTools;
+import com.aotuo.vegetable.util.FinalContent;
+import com.aotuo.vegetable.util.MyToast;
+import com.aotuo.vegetable.util.StringUtils;
+import com.aotuo.vegetable.view.TitleView;
+import com.aotuo.vegetable.view.crop.CropActivity;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+
+import net.tsz.afinal.FinalBitmap;
+
+import java.io.File;
+import java.util.HashMap;
+
+/**
+ * Created by 牛XX on 2016/9/3.
+ */
+public class MyCenterActivity extends BaseActivity implements View.OnClickListener{
+    private TitleView titleView;
+    private TextView userName, txtName;
+    private RelativeLayout securityCenter;
+    private UserEntity user;
+    private RelativeLayout mobile, busLic, tel, addr, email;
+    private TextView txtMobile, txtTel, txtAddr, txtChgPwd, txtEmail;
+    private ImageView imgBusLic, headPic;
+    private Uri uri;
+    private boolean isUpdatePic = false;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.my_center);
+        initUI();
+        getData();
+    }
+
+    private void initUI() {
+        titleView = new TitleView();
+        titleView.initView(this, "个人中心");
+        userName = (TextView) findViewById(R.id.userName);
+        securityCenter = (RelativeLayout) findViewById(R.id.securityCenter);
+        mobile = (RelativeLayout) findViewById(R.id.mobile);
+        busLic = (RelativeLayout) findViewById(R.id.busLic);
+        tel = (RelativeLayout) findViewById(R.id.tel);
+        addr = (RelativeLayout) findViewById(R.id.addr);
+        email = (RelativeLayout) findViewById(R.id.email);
+        txtMobile = (TextView) findViewById(R.id.txtMobile);
+        txtTel = (TextView) findViewById(R.id.txtTel);
+        txtAddr = (TextView) findViewById(R.id.txtAddr);
+        txtEmail = (TextView) findViewById(R.id.txtEmail);
+        txtName = (TextView) findViewById(R.id.txtName);
+        imgBusLic = (ImageView) findViewById(R.id.imgBusLic);
+        headPic = (ImageView) findViewById(R.id.headPic);
+
+        if(CommonTools.isSell(this)){
+            busLic.setVisibility(View.VISIBLE);
+        } else {
+            busLic.setVisibility(View.GONE);
+        }
+        securityCenter.setOnClickListener(this);
+        mobile.setOnClickListener(this);
+        busLic.setOnClickListener(this);
+        tel.setOnClickListener(this);
+        addr.setOnClickListener(this);
+        email.setOnClickListener(this);
+        headPic.setOnClickListener(this);
+        headPic.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                delUserPic();
+                return true;
+            }
+        });
+    }
+
+    private void initData(){
+        userName.setText(user.getUserName());
+        txtAddr.setText(user.getAddr());
+        txtTel.setText(user.getTel());
+        txtMobile.setText(user.getMobile());
+        txtEmail.setText(user.getEmail());
+        txtName.setText(user.getFullName());
+
+        if(CommonTools.isSell(this)){
+            busLic.setVisibility(View.VISIBLE);
+            FinalBitmap.create(this).display(imgBusLic, FinalContent.FinalUrl + user.getBusLic());
+        } else {
+            busLic.setVisibility(View.GONE);
+        }
+        if(!StringUtils.isEmpty(user.getHeadImg()))
+            FinalBitmap.create(this).display(headPic, FinalContent.FinalUrl + user.getHeadImg());
+    }
+
+    private void getData() {
+        HashMap<String, Object> param = new HashMap<String, Object>();
+        param.put("Token", CommonTools.getToken(this));
+        MainActivity.postRequest(1, sHandler, "/UserA/UserDetail", param);
+    }
+
+    private void saveUserPic(){
+        HashMap<String, Object> param = new HashMap<String, Object>();
+        param.put("Token", CommonTools.getToken(MyCenterActivity.this));
+        File f = new File(uri.getPath());
+        if(f == null){
+            MyToast.showToast(this, "选择图片文件无效！", 3);
+            return;
+        }
+        param.put("userPic", f);
+
+        MainActivity.postImgRequest(2, sHandler, "/UserA/EditHeadPic", param);
+    }
+
+    private void delUserPic(){
+        HashMap<String, Object> param = new HashMap<String, Object>();
+        param.put("Token", CommonTools.getToken(MyCenterActivity.this));
+        MainActivity.postImgRequest(3, sHandler, "/UserA/DelHeadPic", param);
+    }
+
+    private Handler sHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what == 1) {
+                if (msg.arg1 > 0) {
+                    user = null;
+                    try {
+                        user = new Gson().fromJson(msg.obj.toString(), UserEntity.class);
+                    } catch (JsonSyntaxException e) {
+                        e.printStackTrace();
+                    }
+                    if(user != null){
+                        initData();
+                    }
+                }
+            } else if(msg.what == 2){
+                if(msg.arg1 > 0){
+                    isUpdatePic = true;
+                    MyToast.showToast(MyCenterActivity.this, "更改用户头像成功！", 3);
+                } else {
+                    MyToast.showToast(MyCenterActivity.this, "更改用户头像失败！", 3);
+                }
+            } else if(msg.what == 3){
+                if(msg.arg1 > 0){
+                    headPic.setImageResource(R.drawable.mine_photo);
+                    isUpdatePic = true;
+                    MyToast.showToast(MyCenterActivity.this, "删除用户头像成功！", 3);
+                } else {
+                    MyToast.showToast(MyCenterActivity.this, "删除用户头像失败！", 3);
+                }
+            }
+        }
+    };
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.securityCenter:{
+                startActivity(new Intent(MyCenterActivity.this, SecurityActivity.class));
+            }
+            break;
+            case R.id.mobile:{
+
+            }
+            break;
+            case R.id.busLic:{
+
+            }
+            break;
+            case R.id.tel:{
+
+            }
+            break;
+            case R.id.addr:{
+
+            }
+            break;
+            case R.id.headPic:{
+                Intent getIcon = new Intent(MyCenterActivity.this,
+                        GetPicActivity.class);
+                startActivityForResult(getIcon, GetPicActivity.GET_USER_PHOTO);
+            }
+            break;
+        }
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(isUpdatePic){
+            isUpdatePic = false;
+            //更新最新数据
+            MainActivity.getUserData();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case GetPicActivity.GET_USER_PHOTO: {
+                if (data != null) {
+                    Bundle extras = data.getExtras();
+                    if (extras != null) {
+                        uri = data.getParcelableExtra(CropActivity.CROP_IMAGE_URI);
+                        headPic.setImageURI(uri);
+                        saveUserPic();
+                    }
+                }
+            }
+            break;
+            default:
+                break;
+        }
+    }
+}

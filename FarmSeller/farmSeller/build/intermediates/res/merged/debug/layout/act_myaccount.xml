@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical" >
+
+    <!-- 标题 -->
+    <include layout="@layout/title_view" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/c06c1ae" >
+
+        <TextView
+            android:id="@+id/txtBlance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="0.00元"
+            android:textColor="@color/red"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2px"
+        android:background="@color/line" />
+
+    <RelativeLayout
+        android:id="@+id/recharge"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/aotuo_hight_45"
+        android:background="@drawable/onclick_background"
+        android:clickable="true"
+        android:visibility="visible" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:drawableLeft="@drawable/mine_points"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
+            android:text="余额充值" />
+
+        <ImageView
+            android:layout_width="@dimen/more_img_width"
+            android:layout_height="@dimen/more_img_height"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:padding="3dip"
+            android:src="@drawable/mine_to" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2px"
+        android:background="@color/line" />
+
+    <RelativeLayout
+        android:id="@+id/withdrawCash"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/aotuo_hight_45"
+        android:background="@drawable/onclick_background"
+        android:clickable="true"
+        android:visibility="visible" >
+
+        <ImageView
+            android:layout_width="@dimen/more_img_width"
+            android:layout_height="@dimen/more_img_height"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:padding="3dip"
+            android:src="@drawable/mine_to" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="16dp"
+            android:drawableLeft="@drawable/mine_points"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
+            android:text="余额提现" />
+
+    </RelativeLayout>
+
+</LinearLayout>

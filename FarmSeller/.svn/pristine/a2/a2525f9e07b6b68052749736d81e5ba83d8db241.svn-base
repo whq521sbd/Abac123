@@ -1,0 +1,140 @@
+package com.aotuo.vegetable.act;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.aotuo.vegetable.R;
+import com.aotuo.vegetable.base.BaseActivity;
+import com.aotuo.vegetable.entity.UserEntity;
+import com.aotuo.vegetable.util.CommonTools;
+import com.aotuo.vegetable.util.FinalContent;
+import com.aotuo.vegetable.view.TitleView;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+
+import net.tsz.afinal.FinalBitmap;
+
+import java.util.HashMap;
+
+/**
+ * Created by 牛XX on 2016/9/3.
+ */
+public class MyCenterActivity extends BaseActivity implements View.OnClickListener{
+    private TitleView titleView;
+    private TextView userName;
+    private RelativeLayout securityCenter;
+    private UserEntity user;
+    private RelativeLayout mobile, busLic, tel, addr, email;
+    private TextView txtMobile, txtTel, txtAddr, txtChgPwd, txtEmail;
+    private ImageView imgBusLic;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.my_center);
+        initUI();
+        getData();
+    }
+
+    private void initUI() {
+        titleView = new TitleView();
+        titleView.initView(this, "个人中心");
+        userName = (TextView) findViewById(R.id.userName);
+        securityCenter = (RelativeLayout) findViewById(R.id.securityCenter);
+        mobile = (RelativeLayout) findViewById(R.id.mobile);
+        busLic = (RelativeLayout) findViewById(R.id.busLic);
+        tel = (RelativeLayout) findViewById(R.id.tel);
+        addr = (RelativeLayout) findViewById(R.id.addr);
+        email = (RelativeLayout) findViewById(R.id.email);
+        txtMobile = (TextView) findViewById(R.id.txtMobile);
+        txtTel = (TextView) findViewById(R.id.txtTel);
+        txtAddr = (TextView) findViewById(R.id.txtAddr);
+        txtEmail = (TextView) findViewById(R.id.txtEmail);
+        imgBusLic = (ImageView) findViewById(R.id.imgBusLic);
+
+        securityCenter.setOnClickListener(this);
+        mobile.setOnClickListener(this);
+        busLic.setOnClickListener(this);
+        tel.setOnClickListener(this);
+        addr.setOnClickListener(this);
+        email.setOnClickListener(this);
+
+    }
+
+    private void initData(){
+        userName.setText(user.getUserName());
+        txtAddr.setText(user.getAddr());
+        txtTel.setText(user.getTel());
+        txtMobile.setText(user.getMobile());
+        txtEmail.setText(user.getEmail());
+        if(CommonTools.isSell(this)){
+            busLic.setVisibility(View.VISIBLE);
+            FinalBitmap.create(this).display(imgBusLic, FinalContent.FinalUrl + user.getBusLic());
+        } else {
+            busLic.setVisibility(View.GONE);
+        }
+    }
+
+    private void getData() {
+        HashMap<String, Object> param = new HashMap<String, Object>();
+        param.put("Token", CommonTools.getToken(this));
+        MainActivity.postRequest(1, sHandler, "/UserA/UserDetail", param);
+    }
+
+    private Handler sHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what == 1) {
+                if (msg.arg1 > 0) {
+                    user = null;
+                    try {
+                        user = new Gson().fromJson(msg.obj.toString(), UserEntity.class);
+                    } catch (JsonSyntaxException e) {
+                        e.printStackTrace();
+                    }
+                    if(user != null){
+                        initData();
+                    }
+                }
+            }
+        }
+    };
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.securityCenter:{
+                startActivity(new Intent(MyCenterActivity.this, SecurityActivity.class));
+            }
+            break;
+            case R.id.mobile:{
+
+            }
+            break;
+            case R.id.busLic:{
+
+            }
+            break;
+            case R.id.tel:{
+
+            }
+            break;
+            case R.id.addr:{
+
+            }
+            break;
+            case R.id.email:{
+
+            }
+            break;
+        }
+
+    }
+}

@@ -1,0 +1,646 @@
+package com.aotuo.vegetable.act;
+
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Message;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTabHost;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TabHost.OnTabChangeListener;
+import android.widget.TabHost.TabSpec;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.aotuo.vegetable.R;
+import com.aotuo.vegetable.base.BaseFragmentActivity;
+import com.aotuo.vegetable.entity.ClassicData;
+import com.aotuo.vegetable.entity.MessageFlag;
+import com.aotuo.vegetable.entity.NewsVerData;
+import com.aotuo.vegetable.entity.UserEntity;
+import com.aotuo.vegetable.hx.HXService;
+import com.aotuo.vegetable.main.fragment.CarFragment;
+import com.aotuo.vegetable.main.fragment.ChatFragment;
+import com.aotuo.vegetable.main.fragment.MainPageFragment;
+import com.aotuo.vegetable.main.fragment.MineFragment;
+import com.aotuo.vegetable.sqlite.ClassifyDBDao;
+import com.aotuo.vegetable.util.CommonTools;
+import com.aotuo.vegetable.util.NewsBroadcastReceiver;
+import com.aotuo.vegetable.util.ReLoginReceiver;
+import com.aotuo.vegetable.util.StringUtils;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+/**
+ * @author a三
+ * @Description 选项卡切换界面
+ * @time 2015-11-25
+ */
+public class MainActivity extends BaseFragmentActivity {
+    private final static int TO_LOGIN = 12;
+    public static MainActivity instance = null;
+    protected static final String TAG = MainActivity.class.getSimpleName();
+    private FragmentTabHost tabHost;
+    private TextView main_title;
+    private TextView main_flag_icon;
+    private LayoutInflater inflater;
+    public List<TextView> list = new ArrayList<TextView>();
+    private static List<Class> fragment = new ArrayList<Class>();
+    private static MessageFlag messageFlag = new MessageFlag();
+    private List<Integer> image = new ArrayList<Integer>();
+    private List<Integer> tag_names = new ArrayList<Integer>();
+    private List<Integer> tab_names = new ArrayList<Integer>();
+    private SharedPreferences shared_key;
+    private String key;
+    private ServiceConnection mServerConn;
+    private static HXService hxs;
+    private int tab_id = 0;
+    public static  int  mSata= 0;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        shared_key = getSharedPreferences("shared_key", Activity.MODE_PRIVATE);
+        key = shared_key.getString("key", null);
+        instance = MainActivity.this;
+        Intent intent;
+
+        if (StringUtils.isEmpty(key)) {
+            intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivityForResult(intent, TO_LOGIN);
+            initServerConn();
+        } else {
+            initUI();
+            initFragmentData();
+            initServerConn();
+            /**
+             * 买家聊天页面BuyerAdaper调回购物车页面 CarFragment
+             *
+             * */
+//            跳回来之后判断状态
+            if (mSata==1){
+                //Toast.makeText(this," i am  back!",Toast.LENGTH_SHORT).show();
+                intent = getIntent();
+                String str = intent.getStringExtra("BACK");
+                //Log.i("wanghuaqiang", "onCreate: "+str);
+//                获取intent标志，如果符合标志，让购物车fragment 显示
+            if (str.equals("SHOWCAR")){
+            tabHost.setCurrentTab(2);
+            }
+            }
+        }
+    }
+
+
+    private void initFragmentData() {
+        if(CommonTools.isSell(this)){
+            initFragmentDataSell();
+            return;
+        }
+        fragment.clear();
+        fragment.add(MainPageFragment.class);
+        fragment.add(ChatFragment.class);
+        fragment.add(CarFragment.class);
+        fragment.add(MineFragment.class);
+
+        image.clear();
+        image.add(R.drawable.main_footer_select_homepage);
+        image.add(R.drawable.main_footer_select_homepage);
+        image.add(R.drawable.main_footer_select_homepage);
+        image.add(R.drawable.main_footer_select_mine);
+
+        tag_names.clear();
+        tag_names.add(R.string.app_button_1);
+        tag_names.add(R.string.app_button_6);
+        tag_names.add(R.string.app_button_7);
+        tag_names.add(R.string.app_button_5);
+
+        tab_names.clear();
+        tab_names.add(R.string.app_button_1);
+        tab_names.add(R.string.app_button_6);
+        tab_names.add(R.string.app_button_7);
+        tab_names.add(R.string.app_button_5);
+        initFragment();
+    }
+
+    private void initFragmentDataSell() {
+        fragment.clear();
+        fragment.add(MainPageFragment.class);
+        fragment.add(ChatFragment.class);
+        fragment.add(MineFragment.class);
+
+        image.clear();
+        image.add(R.drawable.main_footer_select_homepage);
+        image.add(R.drawable.main_footer_select_homepage);
+        image.add(R.drawable.main_footer_select_mine);
+
+        tag_names.clear();
+        tag_names.add(R.string.app_button_1);
+        tag_names.add(R.string.app_button_6);
+        tag_names.add(R.string.app_button_5);
+
+        tab_names.clear();
+        tab_names.add(R.string.app_button_1);
+        tab_names.add(R.string.app_button_6);
+        tab_names.add(R.string.app_button_5);
+        initFragment();
+    }
+
+    private void initUI() {
+        inflater = LayoutInflater.from(this);
+        tabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+        tabHost.setOnTabChangedListener(new OnTabChangeListener() {
+
+            @Override
+            public void onTabChanged(String tabId) {
+                for (int i : tag_names) {
+                    String str = getResources().getString(i);
+                    if (tabId.equals(str)) {
+                        tab_id = i;
+                        break;
+                    }
+                }
+            }
+        });
+
+    }
+
+    private void initFragment() {
+
+        tabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
+        // 得到fragment的个数
+        int tabNum = fragment.size();
+
+        for (int i = 0; i < tabNum; i++) {
+            // 初始化tabspec用来显示每次切换button后的内容
+            // 为每一个Tab按钮设置图标、文字和内容
+            TabSpec tabSpec = tabHost.newTabSpec(
+                    this.getResources().getString(tag_names.get(i))).setIndicator(
+                    this.getTabView(i));
+            // 把内容添加到tabhost中去
+            // 将Tab按钮添加进Tab选项卡中
+            tabHost.addTab(tabSpec, fragment.get(i), null);
+        }
+
+        tabHost.getTabWidget().setDividerDrawable(null);// 去掉ftabhost中间的下划线
+        tabHost.setCurrentTab(0);
+    }
+
+    // gain every tab's View
+    public View getTabView(int index) {
+        View view = inflater.inflate(R.layout.tab_main_view, null);
+        ImageView iv_icon = (ImageView) view.findViewById(R.id.imageview);
+        iv_icon.setImageResource(image.get(index));
+
+        main_title = (TextView) view.findViewById(R.id.txtMain);
+        main_title.setText(tab_names.get(index));
+
+        main_flag_icon = (TextView) view.findViewById(R.id.main_flag_icon);
+        main_flag_icon.setVisibility(View.INVISIBLE);
+        list.add(index, main_flag_icon);
+
+        return view;
+    }
+
+
+
+    //复写返回键监听
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            //首先判断是否在首页面，如果是直接退出
+            if (tabHost.getCurrentTab() == 0) {
+                exit();
+            } else {
+                //如果在其他页面，则先返回到首页
+                tabHost.setCurrentTab(0);
+            }
+            return false;
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
+    }
+
+    public void exit() {
+        if (!isExit) {
+            isExit = true;
+            Toast.makeText(getApplicationContext(), "再按一次退出程序",
+                    Toast.LENGTH_SHORT).show();
+            //2S 之后重现修改isExit状态 开关 为F
+            myHandler.sendEmptyMessageDelayed(0, 2000);
+        } else {
+            app.exitApplication();
+        }
+    }
+
+
+    private boolean isExit;
+    private Handler myHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            isExit = false;
+        }
+    };
+//
+//    @Override
+//    protected void onRestart() {
+//
+//        Intent intent =  new Intent();
+//         String sata =  intent.getStringExtra("BACK");
+//        if (sata.equals("SHOWCAR")){
+//            Toast.makeText(this," i am  back!",Toast.LENGTH_SHORT).show();
+//        }
+//
+//        super.onRestart();
+//    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        // TODO Auto-generated method stub
+        stopServerConn();
+        //LocationService locationService = ((FarmApp) getApplication()).locationService;
+        //locationService.stop();
+        super.onDestroy();
+    }
+
+    @Override
+    public void handleCallBack(Message msg) {
+
+    }
+
+    private void initServerConn() {
+        mServerConn = new ServiceConnection() {
+
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                Log.i(TAG, "service connected start");
+                hxs = ((HXService.LocalBinder) service).getService();
+
+                if (StringUtils.isEmpty(key)) {
+                    //Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    //startActivityForResult(intent, TO_LOGIN);
+                } else {
+                    getUserData();
+                    infiniteLoogHandler.sendEmptyMessage(13);
+                    sHandler.sendEmptyMessageDelayed(TO_DOG, 2 * delaySec * 1000);
+                }
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+                Log.i(TAG, "service connected end");
+            }
+        };
+        Intent service = new Intent(this.getApplicationContext(),
+                HXService.class);
+        this.bindService(service, mServerConn, Context.BIND_AUTO_CREATE);
+    }
+
+    private void getClassVer() {
+        MainActivity.getRequest(TO_VER_CLASSIC, sHandler, "/GoodsA/MessClassVer", null);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == TO_LOGIN) {
+            if (resultCode == RESULT_OK) {
+                Intent close = new Intent();
+                close.setAction(ReLoginReceiver.RE_LOGIN);
+                sendBroadcast(close);
+                if(inflater == null){
+                    initUI();
+                    if(CommonTools.isSell(this)){
+                        initFragmentDataSell();
+                    } else {
+                        initFragmentData();
+                    }
+                } else {
+                    if(CommonTools.isSell(this)){
+                        initFragmentDataSell();
+                    }
+                }
+
+                infiniteLoogHandler.sendEmptyMessage(13);
+                sHandler.sendEmptyMessageDelayed(TO_DOG, 2 * delaySec * 1000);
+            } else {
+                finish();
+                System.exit(0);
+            }
+        }
+    }
+
+    private void stopServerConn() {
+        hxs = null;
+        this.unbindService(mServerConn);
+    }
+
+    public static void getRequest(int what, Handler sHandler, String interString,
+                                  HashMap<String, String> param) {
+        if (hxs != null) {
+            hxs.getRequest(what, sHandler, interString, param);
+        }
+    }
+
+    public static void postRequest(int what, Handler sHandler, String interString,
+                                   HashMap<String, Object> param) {
+        if (hxs != null) {
+            hxs.postRequest(what, sHandler, interString, param);
+        }
+    }
+
+    public static void postImgRequest(int what, Handler sHandler, String interString,
+                                      HashMap<String, Object> param) {
+        if (hxs != null) {
+            hxs.postImgRequest(what, sHandler, interString, param);
+        }
+    }
+
+    public static void hasNewData() {
+        if (hxs != null) {
+            hxs.isNewClassity();
+        }
+    }
+
+    public static void getUserData() {
+        if (hxs != null) {
+            hxs.getUserInfo();
+        }
+    }
+
+    public static UserEntity getUser(){
+        if (hxs != null) {
+            return hxs.getUser();
+        }
+        return null;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+    }
+
+    private int delaySec = 60;
+    private static final int TO_VER_CLASSIC = 219;
+    private static final int TO_ALL_CLASSIC = 220;
+    private static final int TO_DOG = 230;
+    private static final int TO_QUERY = 235;
+    private static final int TO_NEWSVER_H = 236;
+    private static final int TO_NEWSVER = 237;
+    private static final int TO_USER_MSG_has_H = 238;
+    private static final int TO_USER_NEWS_has = 239;
+    private static final int TO_MARKET_MessVER_H = 240;
+    private static final int TO_MessVER_has = 241;
+
+    private Handler infiniteLoogHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            infiniteLoogHandler.removeCallbacksAndMessages(null);
+            switch (msg.what) {
+                case 1275: {
+                    sHandler.sendEmptyMessage(TO_NEWSVER_H);
+                    infiniteLoogHandler.sendEmptyMessageDelayed(1276, delaySec * 1000);
+                }
+                break;
+                case 1276: {
+                    sHandler.sendEmptyMessage(TO_MARKET_MessVER_H);
+                    infiniteLoogHandler.sendEmptyMessageDelayed(1275, delaySec * 1000);
+                }
+                break;
+                case 2342: {
+                    sHandler.sendEmptyMessage(TO_USER_MSG_has_H);
+                    infiniteLoogHandler.sendEmptyMessageDelayed(2342, 1 * 1000);
+                }
+                break;
+                default: {
+                    sHandler.sendEmptyMessage(TO_USER_MSG_has_H);
+                    infiniteLoogHandler.sendEmptyMessageDelayed(2342, 1 * 1000);
+                    infiniteLoogHandler.sendEmptyMessageDelayed(1275, delaySec * 1000);
+                }
+                break;
+            }
+        }
+    };
+
+    private Handler sHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case TO_VER_CLASSIC: {
+                    if (msg.arg1 > 0) {
+                        ClassicData classicVer = null;
+                        try {
+                            classicVer = new Gson().fromJson(msg.obj.toString(), ClassicData.class);
+                        } catch (JsonSyntaxException e) {
+                            e.printStackTrace();
+                        }
+                        if (classicVer != null) {
+                            String oldVer = CommonTools.getOldClassVer(MainActivity.this);
+
+                            if (classicVer.getVer() == null || oldVer != classicVer.getVer()) {
+
+                            }
+                        }
+                    }
+                }
+                break;
+                case TO_ALL_CLASSIC: {
+                    if (msg.arg1 > 0) {
+                        ClassicData classicData = null;
+                        try {
+                            classicData = new Gson().fromJson(msg.obj.toString(), ClassicData.class);
+                        } catch (JsonSyntaxException e) {
+                            e.printStackTrace();
+                        }
+                        if (classicData != null) {
+                            if (classicData.getClassX().size() > 0) {
+                                ClassifyDBDao dao;
+                                dao = new ClassifyDBDao(MainActivity.this);
+                                dao.deletetable();
+                                dao.addClassifyAll(classicData);
+                                CommonTools.setOldClassVer(MainActivity.this, classicData.getVer());
+                            }
+                        }
+                    }
+                }
+                break;
+                case TO_DOG: {
+
+                }
+                break;
+                case TO_QUERY: {
+
+                }
+                break;
+                case TO_NEWSVER_H: {//获取当前是否有新闻
+                    getNewsVer();
+                }
+                break;
+                case TO_NEWSVER: {
+                    NewsVerData nvd = null;
+                    try {
+                        if (!StringUtils.isEmpty(msg.obj.toString()))
+                            nvd = new Gson().fromJson(msg.obj.toString(), NewsVerData.class);
+                    } catch (JsonSyntaxException e) {
+                        e.printStackTrace();
+                    }
+                    if (nvd != null) {
+                        String oldVer = CommonTools.getNewsVer(MainActivity.this);
+                        if (!nvd.getVer().equals(oldVer)) {
+                            sendBroadcastMsg("hasNews");
+                            messageFlag.setHasNews(true);
+                        } else {
+                            sendBroadcastMsg("noNews");
+                            messageFlag.setHasNews(false);
+                        }
+                    }
+                    showFlag();
+                }
+                break;
+                case TO_USER_MSG_has_H: {//获取当前是否有新信息
+                    getNewsMsg();
+                }
+                break;
+                case TO_USER_NEWS_has: {//发送有新消息
+                    boolean isHas = false;
+                    try {
+                        isHas = new Gson().fromJson(msg.obj.toString(), Boolean.class);
+                    } catch (JsonSyntaxException e) {
+                        e.printStackTrace();
+                    }
+                    if ("token已失效".equals(msg.obj.toString())) {
+                        Intent close = new Intent();
+                        close.setAction(ReLoginReceiver.RE_LOGIN);
+                        MainActivity.this.sendBroadcast(close);
+
+                        ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+                        ComponentName cn = am.getRunningTasks(2).get(1).topActivity;
+                        if(cn.getClassName().contains("LoginActivity"))
+                            return;;
+                        infiniteLoogHandler.removeCallbacksAndMessages(null);
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        startActivityForResult(intent, TO_LOGIN);
+                    } else {
+                        if (isHas) {
+                            sendBroadcastMsg("hasMsg");
+                            messageFlag.setHasMsg(true);
+                        } else {
+                            sendBroadcastMsg("noMsg");
+                            messageFlag.setHasMsg(false);
+                        }
+                    }
+                    showFlag();
+                }
+                break;
+                case TO_MARKET_MessVER_H: {//是否有市场消息
+                    getMessMsg();
+                }
+                break;
+                case TO_MessVER_has: {
+                    NewsVerData nvd = null;
+                    try {
+                        if (!StringUtils.isEmpty(msg.obj.toString()))
+                            nvd = new Gson().fromJson(msg.obj.toString(), NewsVerData.class);
+                    } catch (JsonSyntaxException e) {
+                        e.printStackTrace();
+                    }
+                    String oldVer = CommonTools.getMessVer(MainActivity.this);
+                    if (nvd != null) {
+                        if (!nvd.getVer().equals(oldVer)) {
+                            sendBroadcastMsg("hasMess");
+                            messageFlag.setHasMess(true);
+                        } else {
+                            messageFlag.setHasMess(false);
+                            sendBroadcastMsg("noMess");
+                        }
+                    }
+                    showFlag();
+                }
+                break;
+            }
+        }
+    };
+
+    private void showFlag(){
+        if(messageFlag.isHasMsg())
+            list.get(1).setVisibility(View.VISIBLE);
+        else if(messageFlag.isHasMess())
+            list.get(1).setVisibility(View.VISIBLE);
+        else if(messageFlag.isHasNews())
+            list.get(1).setVisibility(View.VISIBLE);
+        else
+            list.get(1).setVisibility(View.INVISIBLE);
+    }
+
+    private void queryMessage() {
+        HashMap<String, Object> param;
+        param = null;
+        MainActivity.postRequest(TO_QUERY, sHandler, "", param);
+    }
+
+    /**
+     * 获取当前是否有新信息
+     */
+    private void getNewsMsg() {
+        HashMap<String, Object> param = new HashMap<String, Object>();
+        param.put("Token", CommonTools.getToken(MainActivity.this));
+        MainActivity.postRequest(TO_USER_NEWS_has, sHandler, "/UserA/IsNewTalk", param);
+    }
+
+    /**
+     * 获取当前是否有新信息
+     */
+    private void getMessMsg() {
+        HashMap<String, Object> param = new HashMap<String, Object>();
+        param.put("Token", CommonTools.getToken(MainActivity.this));
+        MainActivity.postRequest(TO_MessVER_has, sHandler, "/UserA/MessClassVer", param);
+    }
+
+    /**
+     * 获取新闻当前版本
+     */
+    private void getNewsVer() {
+        HashMap<String, Object> param = new HashMap<String, Object>();
+        MainActivity.postRequest(TO_NEWSVER, sHandler, "/NewsA/NewsClassVer", param);
+    }
+
+    private void sendBroadcastMsg(String msg) {
+        Intent intent = new Intent();
+        intent.setAction(NewsBroadcastReceiver.NEWS_ACTION);
+        intent.putExtra("msg", msg);
+        sendBroadcast(intent);
+    }
+
+    public static MessageFlag getMessageFlag() {
+        return messageFlag;
+    }
+}

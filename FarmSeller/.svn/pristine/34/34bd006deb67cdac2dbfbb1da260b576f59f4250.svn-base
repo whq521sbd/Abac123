@@ -1,0 +1,68 @@
+package com.aotuo.vegetable.adapter;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+
+import com.aotuo.vegetable.R;
+import com.aotuo.vegetable.entity.ContactEntity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by 牛XX on 2016/9/3.
+ */
+public class ContactListAdapter extends BaseAdapter {
+    private List<ContactEntity> list = new ArrayList<ContactEntity>();
+    private LayoutInflater inflater;
+
+    public ContactListAdapter(Context context, List<ContactEntity> list) {
+        inflater = LayoutInflater.from(context);
+        this.list = list;
+    }
+
+    @Override
+    public int getCount() {
+        return list.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        if (position >= list.size())
+            return null;
+        else
+            return list.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View v, ViewGroup parent) {
+        ViewHolder vh = new ViewHolder();
+        if(v == null){
+            v = inflater.inflate(R.layout.contactlist, null);
+            vh.name = (TextView) v.findViewById(R.id.name);
+            vh.addr = (TextView) v.findViewById(R.id.addr);
+            vh.time = (TextView) v.findViewById(R.id.time);
+            vh.flag = v.findViewById(R.id.flag);
+            v.setTag(vh);
+        } else {
+            vh = (ViewHolder) v.getTag();
+        }
+        vh.name.setText(list.get(position).getRecName());
+        return v;
+    }
+    private class ViewHolder{
+        private TextView name;
+        private TextView addr;
+        private TextView time;
+        private View flag;
+    }
+}

@@ -1,0 +1,3 @@
+include ':zXingDemo', ':hellocharts-library', ':hellocharts-samples'
+include ':farmSeller'
+include ':appUpdateDemo'

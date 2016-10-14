@@ -1,0 +1,120 @@
+# view res/layout/abc_action_menu_item_layout.xml #generated:17
+-keep class android.support.v7.internal.view.menu.ActionMenuItemView { <init>(...); }
+
+# view res/layout/abc_action_menu_layout.xml #generated:17
+-keep class android.support.v7.internal.view.menu.ActionMenuView { <init>(...); }
+
+# view res/layout/abc_expanded_menu_layout.xml #generated:17
+-keep class android.support.v7.internal.view.menu.ExpandedMenuView { <init>(...); }
+
+# view res/layout/abc_list_menu_item_layout.xml #generated:17
+# view res/layout/abc_popup_menu_item_layout.xml #generated:17
+-keep class android.support.v7.internal.view.menu.ListMenuItemView { <init>(...); }
+
+# view res/layout/abc_action_bar_decor_include.xml #generated:19
+# view res/layout/abc_action_bar_decor_include.xml #generated:47
+# view res/layout/abc_action_bar_decor_overlay.xml #generated:29
+# view res/layout/abc_action_bar_decor_overlay.xml #generated:52
+-keep class android.support.v7.internal.widget.ActionBarContainer { <init>(...); }
+
+# view res/layout/abc_action_bar_decor_include.xml #generated:31
+# view res/layout/abc_action_bar_decor_overlay.xml #generated:40
+# view res/layout/abc_action_mode_bar.xml #generated:19
+-keep class android.support.v7.internal.widget.ActionBarContextView { <init>(...); }
+
+# view res/layout/abc_action_bar_decor_overlay.xml #generated:17
+-keep class android.support.v7.internal.widget.ActionBarOverlayLayout { <init>(...); }
+
+# view res/layout/abc_action_bar_decor_include.xml #generated:25
+# view res/layout/abc_action_bar_decor_overlay.xml #generated:35
+-keep class android.support.v7.internal.widget.ActionBarView { <init>(...); }
+
+# view res/layout/abc_action_bar_home.xml #generated:17
+-keep class android.support.v7.internal.widget.ActionBarView$HomeView { <init>(...); }
+
+# view res/layout/abc_action_bar_tabbar.xml #generated:17
+# view res/layout/abc_activity_chooser_view.xml #generated:19
+-keep class android.support.v7.internal.widget.LinearLayoutICS { <init>(...); }
+
+# view v11\res/layout-v11/abc_action_bar_decor.xml #generated:17
+# view v11\res/layout-v11/abc_simple_decor.xml #generated:17
+-keep class android.support.v7.internal.widget.NativeActionModeAwareLayout { <init>(...); }
+
+# view res/layout/abc_action_bar_tab.xml #generated:17
+-keep class android.support.v7.internal.widget.ScrollingTabContainerView$TabView { <init>(...); }
+
+# view res/layout/abc_search_view.xml #generated:85
+-keep class android.support.v7.widget.SearchView$SearchAutoComplete { <init>(...); }
+
+# view AndroidManifest.xml #generated:68
+-keep class lecho.lib.hellocharts.samples.AboutActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:32
+-keep class lecho.lib.hellocharts.samples.BubbleChartActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:24
+-keep class lecho.lib.hellocharts.samples.ColumnChartActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:44
+-keep class lecho.lib.hellocharts.samples.ComboLineColumnChartActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:52
+-keep class lecho.lib.hellocharts.samples.GoodBadChartActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:20
+-keep class lecho.lib.hellocharts.samples.LineChartActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:48
+-keep class lecho.lib.hellocharts.samples.LineColumnDependencyActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:16
+-keep class lecho.lib.hellocharts.samples.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:28
+-keep class lecho.lib.hellocharts.samples.PieChartActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:40
+-keep class lecho.lib.hellocharts.samples.PreviewColumnChartActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:36
+-keep class lecho.lib.hellocharts.samples.PreviewLineChartActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:60
+-keep class lecho.lib.hellocharts.samples.SpeedChartActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:56
+-keep class lecho.lib.hellocharts.samples.TempoChartActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:64
+-keep class lecho.lib.hellocharts.samples.ViewPagerChartsActivity { <init>(...); }
+
+# view res/layout/fragment_bubble_chart.xml #generated:11
+-keep class lecho.lib.hellocharts.view.BubbleChartView { <init>(...); }
+
+# view res/layout/fragment_column_chart.xml #generated:11
+# view res/layout/fragment_line_column_dependency.xml #generated:26
+# view res/layout/fragment_preview_column_chart.xml #generated:12
+-keep class lecho.lib.hellocharts.view.ColumnChartView { <init>(...); }
+
+# view res/layout/fragment_combo_line_column_chart.xml #generated:11
+-keep class lecho.lib.hellocharts.view.ComboLineColumnChartView { <init>(...); }
+
+# view res/layout/fragment_good_bad.xml #generated:11
+# view res/layout/fragment_line_chart.xml #generated:8
+# view res/layout/fragment_line_column_dependency.xml #generated:12
+# view res/layout/fragment_preview_line_chart.xml #generated:12
+# view res/layout/fragment_tempo_chart.xml #generated:11
+-keep class lecho.lib.hellocharts.view.LineChartView { <init>(...); }
+
+# view res/layout/fragment_pie_chart.xml #generated:11
+-keep class lecho.lib.hellocharts.view.PieChartView { <init>(...); }
+
+# view res/layout/fragment_preview_column_chart.xml #generated:26
+-keep class lecho.lib.hellocharts.view.PreviewColumnChartView { <init>(...); }
+
+# view res/layout/fragment_preview_line_chart.xml #generated:26
+-keep class lecho.lib.hellocharts.view.PreviewLineChartView { <init>(...); }
+
+# view res/layout/activity_view_pager_charts.xml #generated:1
+-keep class lecho.lib.hellocharts.view.hack.HackyViewPager { <init>(...); }
+

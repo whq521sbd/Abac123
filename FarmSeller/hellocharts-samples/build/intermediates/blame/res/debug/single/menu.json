@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "D:\\FarmSeller\\hellocharts-samples\\build\\intermediates\\res\\merged\\debug\\menu\\preview_column_chart.xml",
+        "source": "D:\\FarmSeller\\hellocharts-samples\\res\\menu\\preview_column_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\hellocharts-samples\\build\\intermediates\\res\\merged\\debug\\menu\\pie_chart.xml",
+        "source": "D:\\FarmSeller\\hellocharts-samples\\res\\menu\\pie_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\hellocharts-samples\\build\\intermediates\\res\\merged\\debug\\menu\\menu_chart.xml",
+        "source": "D:\\FarmSeller\\hellocharts-samples\\res\\menu\\menu_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\hellocharts-samples\\build\\intermediates\\res\\merged\\debug\\menu\\bubble_chart.xml",
+        "source": "D:\\FarmSeller\\hellocharts-samples\\res\\menu\\bubble_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\hellocharts-samples\\build\\intermediates\\res\\merged\\debug\\menu\\preview_line_chart.xml",
+        "source": "D:\\FarmSeller\\hellocharts-samples\\res\\menu\\preview_line_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\hellocharts-samples\\build\\intermediates\\res\\merged\\debug\\menu\\tempo_chart.xml",
+        "source": "D:\\FarmSeller\\hellocharts-samples\\res\\menu\\tempo_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\hellocharts-samples\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "D:\\FarmSeller\\hellocharts-samples\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\hellocharts-samples\\build\\intermediates\\res\\merged\\debug\\menu\\line_chart.xml",
+        "source": "D:\\FarmSeller\\hellocharts-samples\\res\\menu\\line_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\hellocharts-samples\\build\\intermediates\\res\\merged\\debug\\menu\\column_chart.xml",
+        "source": "D:\\FarmSeller\\hellocharts-samples\\res\\menu\\column_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\hellocharts-samples\\build\\intermediates\\res\\merged\\debug\\menu\\combo_line_column_chart.xml",
+        "source": "D:\\FarmSeller\\hellocharts-samples\\res\\menu\\combo_line_column_chart.xml"
+    }
+]

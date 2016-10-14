@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/background"
+              android:orientation="vertical">
+
+    <!-- 标题 -->
+    <RelativeLayout
+        android:id="@+id/Rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/title_bar_color">
+
+        <View
+            android:id="@+id/titleGap"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/aotuo_hight_40"
+            android:layout_below="@id/titleGap">
+
+            <TextView
+                android:id="@+id/car_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical"
+                android:text="购物车"
+                android:textColor="@color/title_font"/>
+
+            <TextView
+                android:visibility="gone"
+                android:layout_marginRight="10dp"
+                android:gravity="right"
+                android:layout_alignParentRight="true"
+                android:layout_alignBaseline="@+id/car_title"
+                android:layout_toRightOf="@+id/car_title"
+                android:textColor="#fff"
+                android:text="编辑"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/mime_infrom"
+                android:layout_width="@dimen/aotuo_hight_50"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:clickable="true"
+                android:padding="15dip"
+                android:src="@drawable/mine_inform"
+                android:visibility="gone"/>
+
+            <RelativeLayout
+                android:layout_width="14dip"
+                android:layout_height="14dip"
+                android:layout_alignRight="@+id/mime_infrom"
+                android:layout_alignTop="@+id/mime_infrom"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/inform_flag_icon"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="8sp"
+                    android:visibility="invisible"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <ListView
+        android:layout_below="@+id/Rl_title"
+        android:id="@+id/car_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+
+
+<FrameLayout
+    android:background="#fff"
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center_vertical"
+            android:text="全选"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+       android:gravity="center_vertical"
+        android:text="总计："
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+
+        <TextView
+            android:layout_marginRight="5dp"
+           android:textColor="#ff0000"
+            android:gravity="center_vertical"
+            android:text="0.00"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:paddingLeft="10dp"
+           android:background="#FF6537"
+            android:gravity="center_vertical"
+            android:text="结算"
+            android:layout_width="60dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</FrameLayout>
+
+
+</RelativeLayout>

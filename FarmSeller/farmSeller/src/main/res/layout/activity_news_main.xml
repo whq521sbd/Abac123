@@ -1,0 +1,162 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/title_view" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2px"
+        android:background="@color/line" />
+
+    <LinearLayout
+        android:id="@+id/order"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:padding="15dp" >
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="市场消息" />
+
+            <TextView
+                android:id="@+id/newsMessFlags"
+                android:layout_width="10dip"
+                android:layout_height="10dip"
+                android:background="@drawable/inform_hint"
+                android:gravity="center"
+                android:text=""
+                android:textSize="8sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/content_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/c999999"
+                android:textSize="@dimen/font14" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2px"
+        android:background="@color/line" />
+
+    <LinearLayout
+        android:id="@+id/news"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:padding="15dp" >
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/service" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="时事新闻" />
+
+            <TextView
+                android:id="@+id/newsFlags"
+                android:layout_width="10dip"
+                android:layout_height="10dip"
+                android:background="@drawable/inform_hint"
+                android:gravity="center"
+                android:text=""
+                android:textSize="8sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/content_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/c999999"
+                android:textSize="@dimen/font14" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2px"
+        android:background="@color/line" />
+
+    <LinearLayout
+        android:id="@+id/customer"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:padding="15dp" >
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/artificial" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="用户消息" />
+
+            <TextView
+                android:id="@+id/newsUserFlags"
+                android:layout_width="10dip"
+                android:layout_height="10dip"
+                android:background="@drawable/inform_hint"
+                android:gravity="center"
+                android:text=""
+                android:textSize="8sp"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/content_customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/c999999"
+                android:textSize="@dimen/font14" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2px"
+        android:background="@color/line" />
+
+</LinearLayout>

@@ -1,0 +1,309 @@
+package com.aotuo.vegetable.main.fragment;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.TextView;
+
+import com.aotuo.vegetable.R;
+import com.aotuo.vegetable.act.MainActivity;
+import com.aotuo.vegetable.act.MarketNewsCenterActivity;
+import com.aotuo.vegetable.act.NewsCenterActivity;
+import com.aotuo.vegetable.adapter.ContactListAdapter;
+import com.aotuo.vegetable.base.BaseFragment;
+import com.aotuo.vegetable.dialog.DefaultDialog;
+import com.aotuo.vegetable.entity.ContactEntity;
+import com.aotuo.vegetable.entity.ContactListData;
+import com.aotuo.vegetable.entity.MessageFlag;
+import com.aotuo.vegetable.hx.ChatActivity;
+import com.aotuo.vegetable.util.CommonTools;
+import com.aotuo.vegetable.util.MyToast;
+import com.aotuo.vegetable.util.StaticDialog;
+import com.aotuo.vegetable.view.XListView;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+
+public class ChatFragment extends BaseFragment implements View.OnClickListener, XListView.IXListViewListener{
+    private LayoutInflater inflater;
+    private Bundle savedInstanceState;
+    private TextView order, news;
+    private TextView marketFlags, newsFlags;
+    private ViewGroup container;
+    private View view;
+    private int curPage;
+    private int pageLen;
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        this.inflater = inflater;
+        this.container = container;
+        this.savedInstanceState = savedInstanceState;
+        if (view == null) {
+            view = inflater.inflate(R.layout.fragment_contact_list, null);
+
+            initUI(view);
+        }
+        ViewGroup parent = (ViewGroup) view.getParent();
+            if (parent != null) {
+            parent.removeView(view);
+        }
+        return view;
+    }
+
+    private XListView listView;
+    private List<ContactEntity> contactEntityList = new ArrayList<ContactEntity>();
+    private ContactListAdapter adapter;
+    private DefaultDialog deleteDialog;
+
+    private void initUI(View v) {
+        //titleView = new TitleView();
+        //titleView.initView(getActivity(), "通讯录");
+        order = (TextView) v.findViewById(R.id.order);
+        order.setOnClickListener(this);
+        news = (TextView) v.findViewById(R.id.news);
+        news.setOnClickListener(this);
+        //marketFlags = (TextView) v.findViewById(R.id.marketFlags);
+        newsFlags = (TextView) v.findViewById(R.id.newsFlags);
+        listView = (XListView) v.findViewById(R.id.listView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int pos = position - 1;
+                if(pos < contactEntityList.size() && pos >= 0){
+                    Intent intent = new Intent(getActivity(), ChatActivity.class);
+                    intent.putExtra("RecID", contactEntityList.get(pos).getRecID());
+                    intent.putExtra("RecName", contactEntityList.get(pos).getRecName());
+                    intent.putExtra("otherHeadImg", contactEntityList.get(pos).getHeadImg());
+                    intent.putExtra("otherBooth", contactEntityList.get(pos).getBooth());
+                    startActivity(intent);
+                }
+            }
+        });
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                int pos = position - 1;
+                if(pos < contactEntityList.size() && pos >= 0){
+                    toDelete(contactEntityList.get(pos).getRecID());
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        deleteDialog = new DefaultDialog(getActivity(), R.style.MyDialogStyle,
+                new DefaultDialog.DialogListener() {
+
+                    @Override
+                    public void onclick(View v) {
+                        switch (v.getId()) {
+                            case R.id.cannel_clear:
+                                deleteDialog.dismiss();
+                                break;
+                            case R.id.sure_clear:
+                                HashMap<String, String> param = new HashMap<String, String>();
+                                param.put("UserNum", deleteDialog.getStrParem());
+                                param.put("Token", CommonTools.getToken(getActivity()));
+                                MainActivity.getRequest(3, sHandler, "/UserA/TalkUserDel", param);
+                                deleteDialog.dismiss();
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
+        deleteDialog.setTitle("是否删除？");
+
+        hasNewsList();
+        adapter = new ContactListAdapter(getActivity(), contactEntityList);
+        listView.setAdapter(adapter);
+        listView.setPullLoadEnable(true);
+        listView.setPullRefreshEnable(true);
+        listView.setXListViewListener(this);
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        MessageFlag messageFlag = MainActivity.getMessageFlag();
+        if (messageFlag != null) {
+            if(messageFlag.isHasMess())//市场
+                marketFlags.setVisibility(View.VISIBLE);
+            if(messageFlag.isHasNews())//新闻
+                newsFlags.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        curPage = 1;
+        getUserList(curPage);
+        updateHandler.removeCallbacksAndMessages(null);
+        updateHandler.sendEmptyMessageDelayed(132, 1000);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        updateHandler.removeCallbacksAndMessages(null);
+    }
+
+    private void toDelete(String UserNum) {
+        StaticDialog sd = new StaticDialog();
+        deleteDialog.setStrParem(UserNum);
+        deleteDialog.setStrContent("是否删除？");
+        sd.init_dialog(deleteDialog);
+    }
+
+    /**
+     * 获取当前联系人列表
+     */
+    private void getUserList(int page){
+        HashMap<String,Object> param = new HashMap<String, Object>();
+        param.put("Token", CommonTools.getToken(getActivity()));
+        param.put("curPage", "" + page);
+        MainActivity.postRequest(2, sHandler, "/UserA/NewTalkUser", param);
+    }
+    /**
+     * 获取当前是否有新信息
+     */
+    private void hasNewsList(){
+        HashMap<String,Object> param = new HashMap<String, Object>();
+        param.put("Token", CommonTools.getToken(getActivity()));
+        MainActivity.postRequest(1, sHandler, "/UserA/IsNewTalk", param);
+    }
+    private Handler sHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            listView.stopRefresh();
+            switch (msg.what){
+                case 1:{
+                    boolean isHas = false;
+                    try {
+                        isHas = new Gson().fromJson(msg.obj.toString(), Boolean.class);
+                    } catch (JsonSyntaxException e) {
+                        e.printStackTrace();
+                    }
+                    if(isHas){
+
+                    }
+                }
+                break;
+                case 2:{//new List<TalkUserA>() { new CustomerStat() { RecID = "123", RecName="ssssss" } }
+                    listView.stopRefresh();
+                    listView.stopLoadMore();
+                    ContactListData cld = null;
+                    try {
+                        cld = new Gson().fromJson(msg.obj.toString(), ContactListData.class);
+                    } catch (JsonSyntaxException e) {
+                        e.printStackTrace();
+                    }
+
+                    if(cld != null){
+                        if(cld.getCurPage() == 1 || cld.getCurPage() == 0)
+                            contactEntityList.clear();
+                        if(cld.getUsers() != null && cld.getUsers().size() > 0)
+                            contactEntityList.addAll(cld.getUsers());
+                        curPage = cld.getCurPage();
+                        pageLen = cld.getPageSize();
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+                break;
+                case 3:{
+                    if(msg.arg1 > 0){
+                        MyToast.showToast(getActivity(), "删除成功！", 2);
+                        curPage = 1;
+                        getUserList(curPage);
+                    }
+                }
+                break;
+            }
+        }
+    };
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.news:{
+                Intent intent_news = new Intent(getActivity(),
+                        NewsCenterActivity.class);
+                startActivityForResult(intent_news, 1002);
+            }
+            break;
+            case R.id.order:{
+                Intent intent_news = new Intent(getActivity(),
+                        MarketNewsCenterActivity.class);
+                startActivity(intent_news);
+            }
+            break;
+        }
+    }
+
+    private Handler updateHandler = new Handler(){
+        private boolean hasMessage = false;
+
+        public boolean isHasMessage() {
+            return hasMessage;
+        }
+
+        public void setHasMessage(boolean hasMessage) {
+            this.hasMessage = hasMessage;
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            updateHandler.removeCallbacksAndMessages(null);
+            MessageFlag mf = MainActivity.getMessageFlag();
+            if(mf != null){
+                if(mf.isHasMsg()){
+                    if(hasMessage != mf.isHasMsg()){
+                        hasMessage = mf.isHasMsg();
+                        curPage = 1;
+                        getUserList(curPage);
+                    }
+                }
+            }
+            updateHandler.sendEmptyMessageDelayed(132, 1000);
+        }
+    };
+
+    @Override
+    public void onRefresh() {
+        curPage = 1;
+        getUserList(curPage);
+    }
+
+    @Override
+    public void onLoadMore() {
+        if(curPage + 1 <= pageLen)
+            getUserList(curPage + 1);
+        else {
+            listView.stopRefresh();
+            listView.stopLoadMore();
+        }
+    }
+
+    @Override
+    public void handleCallBack(Message msg) {
+
+    }
+}

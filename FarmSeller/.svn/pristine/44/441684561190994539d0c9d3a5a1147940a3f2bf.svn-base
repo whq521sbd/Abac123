@@ -1,0 +1,157 @@
+package com.aotuo.vegetable.act;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.TextView;
+
+import com.aotuo.vegetable.R;
+import com.aotuo.vegetable.adapter.MarketAdapter;
+import com.aotuo.vegetable.base.BaseActivity;
+import com.aotuo.vegetable.entity.MarketData;
+import com.aotuo.vegetable.entity.MarketEntity;
+import com.aotuo.vegetable.util.CommonTools;
+import com.aotuo.vegetable.util.StringUtils;
+import com.aotuo.vegetable.view.TitleView;
+import com.aotuo.vegetable.view.XListView;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+/**
+ * Created by 牛XX on 2016/9/24.
+ */
+
+public class CityMarketActivity extends BaseActivity {
+    private static final int TO_NEXT = 131;
+    private XListView listView;
+    private TitleView titleView;
+    private TextView noData;
+    private String city;
+    private String areaNum;
+    private String goodsName;
+    private List<MarketEntity> list = new ArrayList<MarketEntity>();
+    private MarketAdapter adapter;
+    private int curPage;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.act_city_market);
+        goodsName = getIntent().getStringExtra("goodsName");
+        city = getIntent().getStringExtra("areaCity");
+        areaNum = getIntent().getStringExtra("areaNum");
+        initUI();
+        curPage = 1;
+        getData(curPage);
+    }
+
+    private void initUI() {
+        titleView = new TitleView();
+        titleView.initView(this, city);
+        titleView.setLeftClick(new TitleView.ITitleBarLeft() {
+            @Override
+            public void onLeftClick() {
+                setResult(RESULT_OK);
+                finish();
+            }
+        });
+        listView = (XListView) findViewById(R.id.listView);
+        noData = (TextView) findViewById(R.id.noData);
+        listView.setPullRefreshEnable(true);
+        listView.setPullLoadEnable(true);
+        listView.setXListViewListener(new XListView.IXListViewListener() {
+            @Override
+            public void onRefresh() {
+                curPage = 1;
+                getData(curPage);
+            }
+
+            @Override
+            public void onLoadMore() {
+                getData(curPage + 1);
+            }
+        });
+        adapter = new MarketAdapter(this, list);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int pos = position - 1;
+                if (pos >= 0) {
+                    Intent intent = new Intent(CityMarketActivity.this, MarketActivity.class);
+                    intent.putExtra("goodsName", goodsName);
+                    intent.putExtra("MatketNum", list.get(pos).getNum());
+                    intent.putExtra("MatketName", list.get(pos).getName());
+                    startActivityForResult(intent, TO_NEXT);
+                }
+            }
+        });
+    }
+
+    /**
+     * MarketsByAreaNum：
+     * 参数：Token, curPage,AreaNum
+     */
+    private void getData(int page) {
+        HashMap<String, Object> param = new HashMap<String, Object>();
+        param.put("Token", CommonTools.getToken(this));
+        param.put("curPage", "" + page);
+        param.put("AreaNum", areaNum);
+        if (!StringUtils.isEmpty(goodsName))
+            param.put("goodsName", goodsName);
+        MainActivity.postRequest(1, sHandler, "/GoodsA/MarketsByAreaNum", param);
+    }
+
+    private Handler sHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what == 1) {
+                listView.stopLoadMore();
+                listView.stopRefresh();
+                if (msg.arg1 > 0) {
+                    MarketData md = null;
+                    try {
+                        md = new Gson().fromJson(msg.obj.toString(), MarketData.class);
+                    } catch (JsonSyntaxException e) {
+                        e.printStackTrace();
+                    }
+                    if (md != null) {
+                        if (curPage == 1) {
+                            list.clear();
+                        }
+                        list.addAll(md.getMarkets());
+                        curPage = md.getCurPage();
+                    }
+                }
+                adapter.notifyDataSetChanged();
+                if (list.size() > 0)
+                    noData.setVisibility(View.GONE);
+                else
+                    noData.setVisibility(View.VISIBLE);
+            }
+        }
+    };
+    @Override
+    public void onBackPressed() {
+        setResult(RESULT_FIRST_USER);
+        super.onBackPressed();
+        finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == TO_NEXT && resultCode == RESULT_CANCELED){
+            setResult(RESULT_CANCELED);
+            finish();
+        }
+    }
+}

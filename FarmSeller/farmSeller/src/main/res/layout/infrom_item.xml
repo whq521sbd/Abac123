@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="@dimen/aotuo_hight_20"
+        android:text="2015-10-10 10:10"
+        android:textColor="@color/c999999"
+        android:textSize="@dimen/aotuo_textsize_14" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/aotuo_hight_15"
+        android:layout_marginRight="@dimen/aotuo_hight_15"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edit_shopping_car_button_1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="@dimen/aotuo_hight_10"
+            android:text="付款成功"
+            android:textColor="@color/black"
+            android:textSize="@dimen/aotuo_textsize_16" />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/aotuo_hight_12"
+            android:layout_marginLeft="8dp"
+            android:text="是大概啥岗位问过我上个班vweawegweageat问问他让他忽然说而娃娃娃儿付完费期望地区"
+            android:textColor="@color/c999999"
+            android:textSize="@dimen/aotuo_textsize_14" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="@dimen/aotuo_hight_20"
+        android:text="2015年10月8日 19:05"
+        android:textColor="@color/my_first_color"
+        android:textSize="@dimen/aotuo_textsize_16"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/aotuo_hight_15"
+        android:layout_marginRight="@dimen/aotuo_hight_15"
+        android:background="@drawable/edit_shopping_car_button_1"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="@dimen/aotuo_hight_10"
+            android:text="商品已发货"
+            android:textColor="@color/my_classify"
+            android:textSize="@dimen/aotuo_textsize_18" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/aotuo_hight_12"
+            android:layout_marginLeft="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="您购买的时尚女包已经发货，请耐心等待！"
+            android:textColor="@color/my_classify"
+            android:textSize="@dimen/aotuo_textsize_16" />
+    </LinearLayout>
+
+</LinearLayout>

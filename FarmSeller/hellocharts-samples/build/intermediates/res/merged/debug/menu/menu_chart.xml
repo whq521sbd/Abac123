@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="lecho.lib.hellocharts.samples.BubbleChartActivity" >
+
+    <item
+        android:id="@+id/action_line"
+        android:title="线图"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_column"
+        android:title="柱图"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_pie"
+        android:title="饼图"
+        app:showAsAction="never"/>
+
+</menu>

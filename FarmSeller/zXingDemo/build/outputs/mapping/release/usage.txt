@@ -1,0 +1,60 @@
+com.aotcap.zxing.aotuo.zxing.aotuo.camera.AutoFocusCallback
+com.aotcap.zxing.aotuo.zxing.aotuo.camera.CameraConfigurationManager
+com.aotcap.zxing.aotuo.zxing.aotuo.camera.CameraManager
+com.aotcap.zxing.aotuo.zxing.aotuo.camera.FlashlightManager
+com.aotcap.zxing.aotuo.zxing.aotuo.camera.PlanarYUVLuminanceSource
+com.aotcap.zxing.aotuo.zxing.aotuo.camera.PreviewCallback
+com.aotcap.zxing.aotuo.zxing.aotuo.decoding.DecodeFormatManager
+com.aotcap.zxing.aotuo.zxing.aotuo.decoding.DecodeHandler
+com.aotcap.zxing.aotuo.zxing.aotuo.decoding.DecodeThread
+com.aotcap.zxing.aotuo.zxing.aotuo.decoding.FinishListener
+com.aotcap.zxing.aotuo.zxing.aotuo.decoding.InactivityTimer
+com.aotcap.zxing.aotuo.zxing.aotuo.decoding.InactivityTimer$1
+com.aotcap.zxing.aotuo.zxing.aotuo.decoding.InactivityTimer$DaemonThreadFactory
+com.aotcap.zxing.aotuo.zxing.aotuo.decoding.Intents
+com.aotcap.zxing.aotuo.zxing.aotuo.decoding.Intents$Encode
+com.aotcap.zxing.aotuo.zxing.aotuo.decoding.Intents$Scan
+com.aotcap.zxing.aotuo.zxing.aotuo.decoding.Intents$SearchBookContents
+com.aotcap.zxing.aotuo.zxing.aotuo.decoding.Intents$Share
+com.aotcap.zxing.aotuo.zxing.aotuo.decoding.Intents$WifiConnect
+com.aotcap.zxing.aotuo.zxing.aotuo.view.ViewfinderResultPointCallback
+com.aotcap.zxing.test.BuildConfig
+com.aotcap.zxing.test.CaptureActivity:
+    private static final float BEEP_VOLUME
+    private static final long VIBRATE_DURATION
+com.aotcap.zxing.test.CreateQRImageTest:
+    private android.widget.ImageView sweepIV
+    25:26:public void setImageView(android.widget.ImageView)
+    34:69:public void createQRImage(java.lang.String)
+com.aotcap.zxing.test.camera.AutoFocusCallback:
+    private static final long AUTOFOCUS_INTERVAL_MS
+com.aotcap.zxing.test.camera.CameraConfigurationManager:
+    private static final int TEN_DESIRED_ZOOM
+    private static final int DESIRED_SHARPNESS
+com.aotcap.zxing.test.camera.CameraManager:
+    private static final int MIN_FRAME_WIDTH
+    private static final int MIN_FRAME_HEIGHT
+    private static final int MAX_FRAME_WIDTH
+    private static final int MAX_FRAME_HEIGHT
+com.aotcap.zxing.test.camera.PlanarYUVLuminanceSource:
+    106:106:public int getDataWidth()
+    110:110:public int getDataHeight()
+com.aotcap.zxing.test.decoding.DecodeFormatManager:
+    55:55:private DecodeFormatManager()
+    58:63:static java.util.Vector parseDecodeFormats(android.content.Intent)
+    67:71:static java.util.Vector parseDecodeFormats(android.net.Uri)
+    76:101:private static java.util.Vector parseDecodeFormats(java.lang.Iterable,java.lang.String)
+com.aotcap.zxing.test.decoding.DecodeThread:
+    public static final java.lang.String BARCODE_BITMAP
+com.aotcap.zxing.test.decoding.InactivityTimer:
+    private static final int INACTIVITY_DELAY_SECONDS
+com.aotcap.zxing.test.decoding.Intents
+com.aotcap.zxing.test.decoding.Intents$Encode
+com.aotcap.zxing.test.decoding.Intents$Scan
+com.aotcap.zxing.test.decoding.Intents$SearchBookContents
+com.aotcap.zxing.test.decoding.Intents$Share
+com.aotcap.zxing.test.decoding.Intents$WifiConnect
+com.aotcap.zxing.test.view.ViewfinderView:
+    private static final long ANIMATION_DELAY
+    private static final int OPAQUE
+    148:150:public void drawResultBitmap(android.graphics.Bitmap)

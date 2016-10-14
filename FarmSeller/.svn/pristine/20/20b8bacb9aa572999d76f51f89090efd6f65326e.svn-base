@@ -1,0 +1,108 @@
+package com.aotuo.vegetable.base;
+
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.util.DisplayMetrics;
+
+import com.aotuo.vegetable.entity.CityMessage;
+import com.aotuo.vegetable.entity.SelectCityMessage;
+import com.custom.nostra13.universalimageloader.core.ImageLoader;
+import com.custom.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+
+import java.util.List;
+import java.util.Stack;
+
+public class FarmApp extends Application {
+    public static Context applicationContext;
+    public Stack<Activity> activityStack;
+    public static FarmApp instance;
+    public static List<CityMessage> citylist;
+    public static String key;
+
+    public static final String CALLBACK_RECEIVER_ACTION = "callback_receiver_action";
+    public List<SelectCityMessage> cityMessages;
+    //public LocationService locationService;
+
+    public FarmApp() {
+    }
+
+    public static FarmApp getInstance() {
+        if (null == instance) {
+            synchronized (FarmApp.class) {
+                if (null == instance) {
+                    instance = new FarmApp();
+                }
+            }
+        }
+
+        return instance;
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        applicationContext = this;
+        ImageLoader.getInstance().init(
+                ImageLoaderConfiguration.createDefault(FarmApp.this));
+
+        // 收集错误信息
+        // 初始化异常接收对象
+//		CrashHandler crashHandler = CrashHandler.getInstance();
+//		crashHandler.init(this);
+//		crashHandler.setCrashHandler(new CrashHandler.ICrashHandler() {
+//			/**
+//			 * 返回自定义信息，如账号、用户名等
+//			 */
+//			@Override
+//			public String getInfo() {
+//				// TODO Auto-generated method stub
+//				return "";
+//			}
+//
+//			@Override
+//			public void exitOp() {
+//				// TODO Auto-generated method stub
+//
+//			}
+//		});
+        // 显示的应用名字
+        //crashHandler.setTitle(getResources().getString(R.string.app_name));
+        // 接收异常信息服务器
+        //crashHandler.setUrl("http://test.080c.com/link.php");
+        // 启动后发送错误信息
+        //crashHandler.sendPreviousReportsToServer();
+
+        //MiPushRegistar.register(this, "2882303761517400865", "5501740053865");
+        //SDKInitializer.initialize(getApplicationContext());
+       // locationService = new LocationService(getApplicationContext());
+
+        //EaseUI.getInstance().init(this);
+    }
+
+    public void addActivity(Activity activity) {
+        if (activityStack == null) {
+            activityStack = new Stack<Activity>();
+        }
+        activityStack.add(activity);
+    }
+
+    public void finishActivity(Activity activity) {
+        if (activity != null) {
+            activityStack.remove(activity);
+            activity.finish();
+            activity = null;
+        }
+    }
+
+    private static DisplayMetrics dm = new DisplayMetrics();
+
+    public static DisplayMetrics getDisplayMetrics() {
+        return dm;
+    }
+
+    public void exitApplication() {
+        System.out.println("exitApplication");
+        System.exit(0);
+    }
+}

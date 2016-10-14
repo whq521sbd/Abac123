@@ -1,0 +1,328 @@
+package com.aotuo.vegetable.act;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.text.InputFilter;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.aotuo.vegetable.R;
+import com.aotuo.vegetable.base.BaseActivity;
+import com.aotuo.vegetable.entity.ClassifyMessage;
+import com.aotuo.vegetable.entity.GoodsA;
+import com.aotuo.vegetable.entity.GoodsAddData;
+import com.aotuo.vegetable.util.CommonTools;
+import com.aotuo.vegetable.util.FinalContent;
+import com.aotuo.vegetable.util.MyToast;
+import com.aotuo.vegetable.view.TitleView;
+import com.aotuo.vegetable.view.crop.CropActivity;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+
+import net.tsz.afinal.FinalBitmap;
+
+import java.io.File;
+import java.util.HashMap;
+
+/**
+ * Created by 牛XX on 2016/8/24.
+ */
+public class CreateGoods extends BaseActivity implements View.OnClickListener, View.OnLongClickListener {
+    private static final int TO_GET_AREA = 26;
+    private RelativeLayout modImg, areall;
+    private ImageView img;
+    private EditText name, weight, introduction, price;
+    private CheckBox showAll;
+    private TextView area;
+    private Button toCreate;
+    private Uri uri;
+    private TitleView title;
+    private String classXXXID;
+    private String className;
+    private String model = "";
+    private GoodsA goodsA;
+    private ClassifyMessage classicMsg;
+    private String areaName, areaNum;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.act_goods_create);
+        model = getIntent().getStringExtra("model");
+        if ("edit".equals(model)) {
+            goodsA = (GoodsA) getIntent().getSerializableExtra("goodsA");
+            classicMsg = (ClassifyMessage) getIntent().getSerializableExtra("classic");
+        } else {
+            classXXXID = getIntent().getStringExtra("ClassXXXID");
+            className = getIntent().getStringExtra("ClassName");
+        }
+        initUI();
+    }
+
+    private void initUI() {
+        areall = (RelativeLayout) findViewById(R.id.areall);
+        areall.setOnClickListener(this);
+        area = (TextView) findViewById(R.id.area);
+        showAll = (CheckBox) findViewById(R.id.showAll);
+        title = new TitleView();
+        if (classicMsg != null)
+            title.initView(CreateGoods.this, classicMsg.getGc_name());
+        else
+            title.initView(CreateGoods.this, className);
+        title.setLeftClick(new TitleView.ITitleBarLeft() {
+            @Override
+            public void onLeftClick() {
+                if(toBack());
+                    finish();
+            }
+        });
+        modImg = (RelativeLayout) findViewById(R.id.modImg);
+        modImg.setOnClickListener(this);
+        img = (ImageView) findViewById(R.id.img);
+        name = (EditText) findViewById(R.id.name);
+        weight = (EditText) findViewById(R.id.weight);
+        introduction = (EditText) findViewById(R.id.introduction);
+        price = (EditText) findViewById(R.id.price);
+        toCreate = (Button) findViewById(R.id.toCreate);
+        toCreate.setOnClickListener(this);
+
+        if ("edit".equals(model)) {
+            FinalBitmap.create(this).display(img, FinalContent.FinalUrl + goodsA.getPic());
+            name.setText(goodsA.getGoodsName());
+            weight.setText(goodsA.getQuantity());
+            price.setText(goodsA.getPrice());
+            introduction.setText(goodsA.getIntroduction());
+        }
+        weight.setFilters(new InputFilter[]{lengthfilter});
+        price.setFilters(new InputFilter[]{lengthfilter});
+
+        if(CommonTools.isSeeAll(this))
+            showAll.setVisibility(View.VISIBLE);
+        else
+            showAll.setVisibility(View.GONE);
+    }
+
+    private InputFilter lengthfilter = new InputFilter() {
+        private int decimalDigits = 2;
+
+        public CharSequence filter(CharSequence source, int start, int end,
+                                   Spanned dest, int dstart, int dend) {
+            // 删除等特殊字符，直接返回
+            if ("".equals(source.toString())) {
+                return null;
+            }
+            String dValue = dest.toString();
+            String[] splitArray = dValue.split("\\.");
+            if (splitArray.length > 1) {
+                String dotValue = splitArray[1];
+                int diff = dotValue.length() + 1 - decimalDigits;
+                if (diff > 0) {
+                    return source.subSequence(start, end - diff);
+                }
+            }
+            return null;
+        }
+
+        public void setDecimalDigits(int decimalDigits) {
+            this.decimalDigits = decimalDigits;
+        }
+    };
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.toCreate: {
+
+                HashMap<String, Object> param = new HashMap<String, Object>();
+                if ("edit".equals(model)) {
+                    if (!isValid2()) {
+                        return;
+                    }
+
+                    param.put("Token", CommonTools.getToken(CreateGoods.this));
+                    param.put("ClassXXXID", goodsA.getClassXXXID());
+                    param.put("GoodsName", name.getText().toString());
+                    if (uri != null)
+                        param.put("Pic", new File(uri.getPath()));
+                    param.put("Price", price.getText().toString());
+                    param.put("Quantity", weight.getText().toString());
+                    param.put("GoodsID", goodsA.getGoodsID());
+                    param.put("Introduction", introduction.getText().toString());
+                    param.put("AllMarket", showAll.isChecked()?"1":"0");
+                    param.put("AreaNum", areaNum);
+
+                    MainActivity.postImgRequest(1, sHandler, "/GoodsA/GoodsEdit", param);
+                } else {
+                    if (!isValid()) {
+                        return;
+                    }
+                    param.put("Token", CommonTools.getToken(CreateGoods.this));
+                    param.put("ClassXXXID", classXXXID);
+                    param.put("GoodsName", name.getText().toString());
+                    param.put("Pic", new File(uri.getPath()));
+                    param.put("Price", price.getText().toString());
+                    param.put("Quantity", weight.getText().toString());
+                    param.put("Introduction", introduction.getText().toString());
+                    param.put("AllMarket", showAll.isChecked()?"1":"0");
+                    param.put("AreaNum", areaNum);
+
+                    MainActivity.postImgRequest(1, sHandler, "/GoodsA/GoodsAdd", param);
+                }
+
+            }
+            break;
+            case R.id.modImg: {
+                if(!toBack())
+                    return;
+                Intent getIcon = new Intent(CreateGoods.this,
+                        GetPicActivity.class);
+                startActivityForResult(getIcon, GetPicActivity.GET_USER_PHOTO);
+            }
+            break;
+            case R.id.areall:{
+                Intent intent = new Intent(CreateGoods.this, AreaActivity.class);
+                startActivityForResult(intent, TO_GET_AREA);
+            }
+            break;
+        }
+    }
+
+    private boolean isValid() {
+        if (uri == null) {
+            MyToast.showToast(CreateGoods.this, "去选择商品图片！", 2);
+            return false;
+        }
+        if (TextUtils.isEmpty(name.getText().toString())) {
+            MyToast.showToast(CreateGoods.this, "请输入商品名称！", 2);
+            return false;
+        }
+        if (TextUtils.isEmpty(price.getText().toString())) {
+            MyToast.showToast(CreateGoods.this, "请输入商品价格！", 2);
+            return false;
+        }
+        if (TextUtils.isEmpty(weight.getText().toString())) {
+            MyToast.showToast(CreateGoods.this, "请输入商品重量！", 2);
+            return false;
+        }
+        if (TextUtils.isEmpty(introduction.getText().toString())) {
+            MyToast.showToast(CreateGoods.this, "请输入商品介绍！", 2);
+            return false;
+        }
+        if (TextUtils.isEmpty(areaNum)) {
+            MyToast.showToast(CreateGoods.this, "请选择地区！", 2);
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValid2() {
+
+        if (TextUtils.isEmpty(name.getText().toString())) {
+            MyToast.showToast(CreateGoods.this, "请输入商品名称！", 2);
+            return false;
+        }
+        if (TextUtils.isEmpty(price.getText().toString())) {
+            MyToast.showToast(CreateGoods.this, "请输入商品价格！", 2);
+            return false;
+        }
+        if (TextUtils.isEmpty(weight.getText().toString())) {
+            MyToast.showToast(CreateGoods.this, "请输入商品重量！", 2);
+            return false;
+        }
+        if (TextUtils.isEmpty(introduction.getText().toString())) {
+            MyToast.showToast(CreateGoods.this, "请输入商品介绍！", 2);
+            return false;
+        }
+        if (TextUtils.isEmpty(areaNum)) {
+            MyToast.showToast(CreateGoods.this, "请选择地区！", 2);
+            return false;
+        }
+
+        return true;
+    }
+
+    private Handler sHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what == 1) { //create goods
+                if (msg.arg1 > 0) {
+                    GoodsAddData gad = null;
+                    try {
+                        gad = new Gson().fromJson(msg.obj.toString(), GoodsAddData.class);
+                    } catch (JsonSyntaxException e) {
+                        e.printStackTrace();
+                    }
+                    if (gad != null) {
+                        if ("edit".equals(model))
+                            MyToast.showToast(CreateGoods.this, "修改成功！", 2);
+                        else
+                            MyToast.showToast(CreateGoods.this, "创建成功！", 2);
+                        Intent intent = new Intent();
+                        intent.putExtra("GoodsID", gad.getGoodsID());
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                } else {
+                    MyToast.showToast(CreateGoods.this, msg.obj.toString(), 2);
+                }
+            }
+        }
+    };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case GetPicActivity.GET_USER_PHOTO: {
+                if (data != null) {
+                    Bundle extras = data.getExtras();
+                    if (extras != null) {
+                        uri = data
+                                .getParcelableExtra(CropActivity.CROP_IMAGE_URI);
+                        img.setImageURI(uri);
+                    }
+                }
+            }
+            break;
+            case TO_GET_AREA:{
+                if(data != null){
+                    areaName = data.getStringExtra("areaName");
+                    areaNum = data.getStringExtra("areaNum");
+                    area.setText(areaName);
+                }
+            }
+            break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public boolean onLongClick(View v) {
+        if (v.getId() == R.id.modImg) {
+            img.setImageResource(R.drawable.defaultimg);
+            uri = null;
+        }
+        return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(toBack())
+            super.onBackPressed();
+    }
+
+    private boolean toBack(){
+
+        return true;
+    }
+}

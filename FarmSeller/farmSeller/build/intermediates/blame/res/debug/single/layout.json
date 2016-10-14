@@ -1,0 +1,558 @@
+[
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\ad3.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\ad3.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_line_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\activity_line_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_goods_create.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_goods_create.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_interlligence.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_interlligence.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_column_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\fragment_column_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\mine_fragment.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\mine_fragment.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_view_pager_charts.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\activity_view_pager_charts.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_include.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_activity_chooser_view_include.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_goods_list.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_goods_list.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_tabbar.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_tabbar.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\customer_center.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\customer_center.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_web_page.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_web_page.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_guide3.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_guide3.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_preview_line_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\activity_preview_line_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_main_page.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\fragment_main_page.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_about.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\fragment_about.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\f_code_dialog.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\f_code_dialog.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\search_dialog.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\search_dialog.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\ad2.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\ad2.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_mode_close_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\filter_content_adapter.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\filter_content_adapter.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\recorder_list_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\recorder_list_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\seldate_list_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\seldate_list_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_myrecord.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_myrecord.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\infrom_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\infrom_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\mydialog.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\mydialog.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_view_pager_charts.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\fragment_view_pager_charts.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_line_column_dependency.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\fragment_line_column_dependency.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\classic_popup.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\classic_popup.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\city_provice_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\city_provice_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_pie_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\activity_pie_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_guide.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_guide.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\xlistview_footer.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\xlistview_footer.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_guide1.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_guide1.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\item_published_grida.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\item_published_grida.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_line_column_dependency.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\activity_line_column_dependency.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_combo_line_column_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\fragment_combo_line_column_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_classic.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_classic.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_booth.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_booth.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\interlligence_list_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\interlligence_list_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_chart_main.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\activity_chart_main.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\chat_gridviewitem.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\chat_gridviewitem.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\filter_car_adapter.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\filter_car_adapter.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_pie_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\fragment_pie_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_good_bad.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\activity_good_bad.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_goods.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_goods.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_select_payment.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_select_payment.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_bubble_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\fragment_bubble_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_decor_overlay.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_decor_overlay.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_myaccount.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_myaccount.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_combo_line_column_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\activity_combo_line_column_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\clearmylookitem.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\clearmylookitem.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_contact_list.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\fragment_contact_list.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_home.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_home.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_tempo_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\fragment_tempo_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\my_center.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\my_center.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\header.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\header.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\tab_main_view.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\tab_main_view.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\test.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\zXingDemo\\unspecified\\res\\layout\\test.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_tempo_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\activity_tempo_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\userphoto_dialog.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\userphoto_dialog.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\classic_pop_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\classic_pop_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\pay_result.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\pay_result.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_bubble_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\activity_bubble_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_city_market.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_city_market.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\list_dialog_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\list_dialog_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_title.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_title.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\viewpager_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\viewpager_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\scrollview_header.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\scrollview_header.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_good_bad.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\fragment_good_bad.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_contact_list.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_contact_list.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_area.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_area.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\chat_from_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\chat_from_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_collect_classic.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_collect_classic.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\back_btn.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\back_btn.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_show_code.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_show_code.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\list_item_sample.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\list_item_sample.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\buyer_fragment.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\buyer_fragment.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\goods_list_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\goods_list_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_about.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\activity_about.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\chat_to_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\chat_to_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_buy.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_buy.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\deal_fragment.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\deal_fragment.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_line_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\fragment_line_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_sms_set.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_sms_set.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_add_news.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_add_news.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\xlistview_header.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\xlistview_header.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\grid_img_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\grid_img_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_custom_list.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_custom_list.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\contactlist.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\contactlist.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\list_dialog.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\list_dialog.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_tab.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_tab.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_forget_pwd.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_forget_pwd.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\marker_news_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\marker_news_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_security.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_security.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\main.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\zXingDemo\\unspecified\\res\\layout\\main.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_preview_column_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\activity_preview_column_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_preview_column_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\fragment_preview_column_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_news_center.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_news_center.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\classic_goods_list.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\classic_goods_list.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_decor_include.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_bar_decor_include.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_news_main.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_news_main.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\buyer_nocamer.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\buyer_nocamer.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\tab_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\tab_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\classic_list_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\classic_list_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_main.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\fragment_main.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\car_listview_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\car_listview_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\pay_result_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\pay_result_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_crop.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_crop.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\car_fragment.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\car_fragment.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_column_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\activity_column_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\title_view.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\title_view.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_preview_line_chart.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\FarmSeller\\hellocharts-samples\\unspecified\\res\\layout\\fragment_preview_line_chart.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\msg_main.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\msg_main.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\classify_item_layout.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\classify_item_layout.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\ad1.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\ad1.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_guide2.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_guide2.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\ok_dialog.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\ok_dialog.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\activity_uploding_picture.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\activity_uploding_picture.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\act_nolocal_sell.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\act_nolocal_sell.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\all_goods_list_item.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\layout\\all_goods_list_item.xml"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_expanded_menu_layout.xml"
+    }
+]

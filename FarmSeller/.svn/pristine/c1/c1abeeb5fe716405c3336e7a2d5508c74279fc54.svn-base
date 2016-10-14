@@ -1,0 +1,27 @@
+package com.aotuo.vegetable.entity;
+
+/**
+ * Created by 牛XX on 2016/9/3.
+ */
+public class ContactEntity {
+    //{ RecID = "123", RecName="ssssss" }
+    private String RecID;
+    private String RecName;
+
+    public String getRecName() {
+        return RecName;
+    }
+
+    public void setRecName(String recName) {
+        RecName = recName;
+    }
+
+    public String getRecID() {
+
+        return RecID;
+    }
+
+    public void setRecID(String recID) {
+        RecID = recID;
+    }
+}

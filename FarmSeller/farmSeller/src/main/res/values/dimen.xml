@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="text_title_size">18sp</dimen>
+    <!-- 6/12 vodl -->
+    <!-- emoji 7 31 -->
+    <dimen name="aotuo_hight_10">10dp</dimen>
+    <dimen name="aotuo_hight_12">12dp</dimen>
+    <dimen name="aotuo_hight_15">15dp</dimen>
+    <dimen name="aotuo_hight_20">20dp</dimen>
+    <dimen name="aotuo_hight_30">30dp</dimen>
+    <dimen name="aotuo_hight_40">40dp</dimen>
+    <dimen name="aotuo_hight_45">45dp</dimen>
+    <dimen name="aotuo_hight_50">50dp</dimen>
+    <dimen name="aotuo_hight_80">80dp</dimen>
+    <dimen name="aotuo_textsize_18">18sp</dimen>
+    <dimen name="aotuo_textsize_16">16sp</dimen>
+    <dimen name="aotuo_textsize_14">14sp</dimen>
+    <dimen name="aotuo_textsize_12">12sp</dimen>
+
+
+    <dimen name="gap">10dp</dimen>
+    <dimen name="more_img_width">20dp</dimen>
+    <dimen name="more_img_height">20dp</dimen>
+    <dimen name="left_margin">15dp</dimen>
+    <dimen name="right_margin">15dp</dimen>
+    <dimen name="item_list_height">45dp</dimen>
+    <dimen name="edittext_height">36dp</dimen>
+    <dimen name="font18">18sp</dimen>
+    <dimen name="font16">16sp</dimen>
+    <dimen name="font14">14sp</dimen>
+    <dimen name="fontSmall">16sp</dimen>
+</resources>

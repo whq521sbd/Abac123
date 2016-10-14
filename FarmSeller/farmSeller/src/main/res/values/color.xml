@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="title_background">#000000</color>
+    <color name="gray_light">#f4f4f4</color>
+    <color name="black">#000000</color>
+    <color name="yellow">#ff4b01</color>
+    <color name="white">#ffffff</color>
+    <color name="main_color">#fd3636</color>
+    <color name="orange">#FFA500</color>
+    <color name="photowall_dialog">#50000000</color>
+    <color name="gray">#ff828282</color>
+
+    <color name="black_light">#626262</color>
+    <color name="red">#ff0000</color>
+
+    <color name="my_classify">#333333</color>
+    <color name="my_classify_v">#858585</color>
+    <color name="my_first_color">#999999</color>
+    <color name="my_third_color">#eeeeee</color>
+    <color name="title_bar_color">#486a9a</color>
+    <color name="line">#e0e0e0</color>
+    <color name="store">#eeeeee</color>
+    <!-- emoji -->
+
+    <color name="transparent">#00000000</color>
+    <color name="background">#ebebeb</color>
+    <color name="c333333">#333333</color>
+    <color name="cebebeb">#ebebeb</color>
+    <color name="cfd3636">#fd3636</color>
+    <color name="cf9f9f9">#f9f9f9</color>
+    <color name="c999999">#999999</color>
+    <color name="c666666">#666666</color>
+    <color name="cff9900">#ff9900</color>
+    <color name="cf6687d">#f6687d</color>
+    <color name="c6b6900">#6b6900</color>
+    <color name="c06c1ae">#06c1ae</color>
+    <color name="list_item">#ffffff</color>
+    <color name="default_font">#333333</color>
+    <color name="title_font">#ffffff</color>
+
+</resources>

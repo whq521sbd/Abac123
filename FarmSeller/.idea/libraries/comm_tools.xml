@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="comm-tools">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/farmSeller/libs/comm-tools.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

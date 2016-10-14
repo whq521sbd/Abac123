@@ -1,0 +1,168 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+
+
+
+
+    -->
+	<style name="AppBaseThemeMy" parent="@android:style/Theme.NoTitleBar">
+		<item name="android:textSize">20sp</item>
+		<item name="android:textColor">@color/default_font</item>
+    </style>
+    
+    
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <!-- dialog -->
+    <style name="Loooading_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 设置无遮罩层 -->
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="roomRatingBarBig" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/room_rating_bar_big</item>
+        <item name="android:minHeight">13dp</item>
+        <item name="android:maxHeight">13dp</item>
+    </style>
+
+    <style name="roomRatingBarassessBig" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/room_rating_bar_big</item>
+        <item name="android:minHeight">13dp</item>
+        <item name="android:maxHeight">13dp</item>
+    </style>
+
+    <style name="roomRatingStore" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/mycollect_store_rating</item>
+    </style>
+
+    <style name="storeroomRatingStore" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/store_assess_rating</item>
+        <item name="android:minHeight">14dp</item>
+        <item name="android:maxHeight">14dp</item>
+    </style>
+
+    <style name="MyDialogStyle" parent="@android:style/Theme.Holo.DialogWhenLarge">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 窗口背景色 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- Dialog的windowFrame框为无 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">false</item>
+        <!-- 窗口是否半透明——是 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 这个不设置的话，可能会出现边框黑线 -->
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 窗口弹出效果 -->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <!-- 是否允许背景模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
+
+    <!-- popupwindow动画 -->
+    <style name="AnimBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+    <style name="loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/shape_nodeal_progressdialog</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="NavPage">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center_horizontal</item>
+        <!-- <item name="android:background">@drawable/nav_page</item> -->
+        <item name="android:background">@color/title_bar_color</item>
+    </style>
+
+    <style name="translucent" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowBackground">@color/photowall_dialog</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+
+    <style name="customProgressBar" parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:indeterminateDrawable">@drawable/custom_progress_bar</item>
+        <item name="android:layout_width">22dp</item>
+        <item name="android:layout_height">21dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    <style name="moreProgressBar" parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:src">@drawable/xsearch_loading</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:layout_width">21dp</item>
+        <item name="android:layout_height">21dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="price_gray_h">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/c666666</item>
+    </style>
+    <style name="price_gray_m">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/c666666</item>
+    </style>
+
+    <style name="price_white_h">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="price_white_m">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="price_red_h">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/cfd3636</item>
+    </style>
+    <style name="price_red_m">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/cfd3636</item>
+    </style>
+
+    <style name="price_red26_h">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/cfd3636</item>
+    </style>
+    <style name="price_red26_m">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/cfd3636</item>
+    </style>
+    	
+    <style name="RadioButtonStyle" >
+        <item name="android:button">@drawable/radio_button</item>
+    </style>
+</resources>

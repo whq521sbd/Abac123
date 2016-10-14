@@ -1,0 +1,46 @@
+package com.aotuo.vegetable.main.fragment;
+
+import android.os.Bundle;
+import android.os.Message;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
+import com.aotuo.vegetable.R;
+import com.aotuo.vegetable.base.BaseFragment;
+
+
+public class CarFragment extends BaseFragment {
+
+    private LayoutInflater inflater;
+    private LinearLayout onlySell;
+    private ViewGroup container;
+    private Bundle savedInstanceState;
+    private View view;
+    private View titleGap;
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        this.inflater = inflater;
+        this.container = container;
+        this.savedInstanceState = savedInstanceState;
+        if (view == null) {
+            view = inflater.inflate(R.layout.car_fragment, null);
+
+
+        }
+        ViewGroup parent = (ViewGroup) view.getParent();
+            if (parent != null) {
+            parent.removeView(view);
+        }
+        return view;
+    }
+
+
+
+    @Override
+    public void handleCallBack(Message msg) {
+
+    }
+}

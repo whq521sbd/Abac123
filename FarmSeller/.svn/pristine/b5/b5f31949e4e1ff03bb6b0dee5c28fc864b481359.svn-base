@@ -1,0 +1,110 @@
+package com.aotuo.vegetable.act;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.aotuo.vegetable.R;
+import com.aotuo.vegetable.base.BaseActivity;
+import com.aotuo.vegetable.entity.RecordEntity;
+import com.aotuo.vegetable.util.CommonTools;
+import com.aotuo.vegetable.util.FinalContent;
+import com.aotuo.vegetable.view.TitleView;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+
+import net.tsz.afinal.FinalBitmap;
+
+import java.util.HashMap;
+
+public class PayInfoActivity extends BaseActivity implements View.OnClickListener{
+    private TitleView titleView;
+    private String num;
+    private RecordEntity re;
+    private TextView txtDate;
+    private TextView name;
+    private TextView price;
+    private TextView weight;
+    private TextView total;
+    private TextView log;
+    private TextView booth, address, state;
+    private ImageView img;
+    private Button bt_payreturn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.pay_result);
+        num = getIntent().getStringExtra("Num");
+
+        titleView = new TitleView();
+        titleView.initView(this, "交易记录");
+        txtDate = (TextView) findViewById(R.id.txtDate);
+        name = (TextView) findViewById(R.id.name);
+        price = (TextView) findViewById(R.id.price);
+        weight = (TextView) findViewById(R.id.weight);
+        total = (TextView) findViewById(R.id.total);
+        booth = (TextView) findViewById(R.id.booth);
+        address = (TextView) findViewById(R.id.address);
+        state = (TextView) findViewById(R.id.state);
+        log = (TextView) findViewById(R.id.log);
+        img = (ImageView) findViewById(R.id.img);
+        bt_payreturn = (Button) findViewById(R.id.bt_payreturn);
+        bt_payreturn.setOnClickListener(this);
+        getData();
+    }
+
+    private void getData() {
+        //参数：Token,Num
+        HashMap<String, Object> param = new HashMap<String, Object>();
+        param.put("Token", CommonTools.getToken(this));
+        param.put("Num", num);
+        MainActivity.postRequest(1, sHandler, "/GoodsA/TransInfo", param);
+    }
+
+    private Handler sHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what == 1) {
+                if (msg.arg1 > 0) {
+                    re = null;
+                    try {
+                        re = new Gson().fromJson(msg.obj.toString(), RecordEntity.class);
+                    } catch (JsonSyntaxException e) {
+                        e.printStackTrace();
+                    }
+                    if (re != null) {
+                        txtDate.setText(re.getTime());
+                        name.setText(re.getGoodsTitle());
+                        price.setText(re.getPrice() + "元/公斤");
+                        weight.setText(re.getWeight() + "公斤");
+                        total.setText("合计：  " + re.getSum() + "元");
+                        log.setText("运费：  " + re.getLogMoney() + "元");
+                        booth.setText(re.getBooth());
+                        address.setText(re.getMarket());
+                        state.setText(re.getState());
+                        FinalBitmap.create(PayInfoActivity.this).display(img, FinalContent.FinalUrl + re.getPicPath());
+                    }
+                }
+            }
+        }
+    };
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.bt_payreturn:
+                finish();
+                break;
+            default:
+                break;
+        }
+
+    }
+}

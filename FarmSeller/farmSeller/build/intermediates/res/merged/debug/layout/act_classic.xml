@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/background"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/title_bar_color">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/defaultback"/>
+
+            <TextView
+                android:id="@+id/txtClassic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/back"
+                android:drawableRight="@drawable/arrow"
+                android:text=""
+                android:textColor="@color/white"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ScrollView
+            android:id="@+id/classify_scrlllview"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:background="@color/my_first_color"
+            android:fadingEdge="none"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/classify"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"/>
+        </ScrollView>
+
+        <View
+            android:layout_width="0.3px"
+            android:layout_height="match_parent"
+            android:background="@color/line"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/classify_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"/>
+    </LinearLayout>
+
+</LinearLayout>

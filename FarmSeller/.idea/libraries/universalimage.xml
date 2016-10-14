@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="universalimage">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/farmSeller/libs/universalimage.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

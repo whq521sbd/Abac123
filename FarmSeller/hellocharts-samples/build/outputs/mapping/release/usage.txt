@@ -1,0 +1,18 @@
+lecho.lib.hellocharts.samples.AboutActivity:
+    public static final java.lang.String GITHUB_URL
+lecho.lib.hellocharts.samples.BubbleChartActivity$PlaceholderFragment:
+    private static final int BUBBLES_NUM
+lecho.lib.hellocharts.samples.BuildConfig
+lecho.lib.hellocharts.samples.ColumnChartActivity$PlaceholderFragment:
+    private static final int DEFAULT_DATA
+    private static final int SUBCOLUMNS_DATA
+    private static final int STACKED_DATA
+    private static final int NEGATIVE_SUBCOLUMNS_DATA
+    private static final int NEGATIVE_STACKED_DATA
+lecho.lib.hellocharts.samples.LineChartActivity:
+    private static final java.lang.String TAG_LINE
+    private static final java.lang.String TAG_COLUME
+    private static final java.lang.String TAG_PIE
+lecho.lib.hellocharts.samples.LineChartActivity$IChart
+lecho.lib.hellocharts.samples.ViewPagerChartsActivity$PlaceholderFragment:
+    private static final java.lang.String ARG_SECTION_NUMBER

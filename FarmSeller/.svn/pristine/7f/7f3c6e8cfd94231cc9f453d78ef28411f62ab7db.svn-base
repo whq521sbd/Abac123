@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@color/background"
+              android:orientation="vertical">
+
+    <include layout="@layout/title_view" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2px"
+        android:background="@color/line"/>
+
+    <HorizontalScrollView
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/tabList"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+
+    <GridView
+        android:gravity="center"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:id="@+id/chat_gridview"
+        android:numColumns="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </GridView>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2px"
+        android:background="@color/line"/>
+
+    <com.aotuo.vegetable.view.XListView
+        android:id="@+id/news_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/line"
+        android:layout_marginLeft="@dimen/gap"
+        android:dividerHeight="0.2px">
+    </com.aotuo.vegetable.view.XListView>
+
+
+</LinearLayout>

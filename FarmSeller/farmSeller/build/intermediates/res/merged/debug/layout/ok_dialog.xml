@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/exit_dialog_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="260dip"
+        android:layout_height="40dip"
+        android:layout_marginTop="30dip" >
+
+        <TextView
+            android:id="@+id/dialog_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text=""
+            android:textColor="#6e6e6e"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="260dip"
+        android:layout_height="0.5dip"
+        android:layout_marginTop="30dip"
+        android:background="#dedfe0" />
+
+    <LinearLayout
+        android:layout_width="260dip"
+        android:layout_height="80dip"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <RelativeLayout
+            android:id="@+id/ok"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+             >
+
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="8dip"
+                android:layout_centerVertical="true"
+                android:text="确定"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:background="@drawable/sure_clear_mylook"
+                android:textColor="#fff"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,146 @@
+package com.aotuo.vegetable.adapter;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.aotuo.vegetable.R;
+import java.util.ArrayList;
+
+
+/**
+ * Created by Administrator on 2016/10/9.
+ */
+
+public class CarAdapter extends BaseAdapter {
+
+    private ArrayList dataList = new ArrayList();
+    private Context ctx;
+
+    //控制 tv_edit“编辑”状态码    1为“编辑”    0为“完成”  默认显示“编辑”
+    private int Tag = 1;
+
+    public CarAdapter(Context ctx, ArrayList dataList) {
+        this.ctx = ctx;
+        this.dataList = dataList;
+    }
+
+    @Override
+    public int getCount() {
+        return dataList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return dataList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    /**
+     * 对于ListView中的数据，显示每行数据都要调用一次该方法， convertView和ViewHolder同完成缓存机制 ，以优化性能
+     */
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View view = convertView;
+        final ViewHolder holder;
+        if (view == null) {
+            LayoutInflater inflater = (LayoutInflater) ctx
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+            //已经绑定购物车item布局
+            view = inflater.inflate(R.layout.car_listview_item,null);
+            
+
+            holder = new ViewHolder();
+
+            // 初始化item 控件
+            holder.ck_checkbox = (CheckBox) view.findViewById(R.id.ck_checkbox);
+            holder.tv_edit = (TextView) view.findViewById(R.id.tv_edit);
+            holder.car_image = (ImageView) view.findViewById(R.id.car_image);
+            holder.name = (TextView) view.findViewById(R.id.name);
+            holder.price = (TextView) view.findViewById(R.id.price);
+            holder.logRate = (TextView) view.findViewById(R.id.logRate);
+            holder.distance = (TextView) view.findViewById(R.id.distance);
+            holder.log = (TextView) view.findViewById(R.id.log);
+            holder.total = (TextView) view.findViewById(R.id.total);
+            holder.goodsTotal = (TextView) view.findViewById(R.id.goodsTotal);
+            holder.booth = (TextView) view.findViewById(R.id.booth);
+            holder.state = (TextView) view.findViewById(R.id.state);
+            holder.address = (TextView) view.findViewById(R.id.address);
+
+
+            holder.normalArea = (LinearLayout)view.findViewById(R.id.normalArea);
+            holder.editArea =(LinearLayout) view.findViewById(R.id.editArea);
+
+            holder.Purchaseweight = (EditText)view.findViewById(R.id.Purchaseweight);
+            holder.tv_delete = (TextView) view.findViewById(R.id.tv_delete);
+
+            view.setTag(holder);
+        } else {
+            holder = (ViewHolder) view.getTag();
+        }
+
+        /**
+         *
+         * TODO： 获取javabean数据之后，给item相应控件赋值
+         * */
+
+        //Setview  获取数据源赋值给item控件
+       /* holder.ck_checkbox.setText(dataList.get(position).);
+        holder.name.setText(dataList.get(position).);
+        holder.price.setText(dataList.get(position).);
+        holder.logRate.setText(dataList.get(position).);
+        holder.distance.setText(dataList.get(position).);
+        holder.log.setText(dataList.get(position).);
+        holder.total.setText(dataList.get(position).);
+        holder.goodsTotal.setText(dataList.get(position).);
+        holder.booth.setText(dataList.get(position).);
+        holder.state.setText(dataList.get(position).);
+        holder.address.setText(dataList.get(position).);*/
+
+        //点击“编辑”之后，设置 tv_edit 控件的文字并且 显示或隐藏 相应布局
+        holder.tv_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Tag == 1){
+                    holder.tv_edit.setText("完成");
+                    holder.editArea.setVisibility(View.VISIBLE);
+                    holder.normalArea.setVisibility(View.GONE);
+                    Tag=0;
+                }else {
+                    holder.tv_edit.setText("编辑");
+                    holder.editArea.setVisibility(View.GONE);
+                    holder.normalArea.setVisibility(View.VISIBLE);
+                    Tag=1;
+                }
+
+            }
+        });
+
+        //获取“总重量”
+         String Purchaseweight  = holder.Purchaseweight.getText().toString();
+        return view;
+    }
+
+
+    private static class ViewHolder {
+        public CheckBox ck_checkbox;
+        public TextView tv_edit;
+        public ImageView car_image;
+        public TextView name,price,weight,goodsTotal,logRate,distance,log,total,booth,state,address;
+        public EditText Purchaseweight;
+        public TextView tv_delete;
+        public LinearLayout normalArea;
+        public LinearLayout editArea;
+    }
+}

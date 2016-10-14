@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FarmSeller.iml" filepath="$PROJECT_DIR$/FarmSeller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appUpdateDemo/appUpdateDemo.iml" filepath="$PROJECT_DIR$/appUpdateDemo/appUpdateDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/farmSeller/farmSeller.iml" filepath="$PROJECT_DIR$/farmSeller/farmSeller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hellocharts-library/hellocharts-library.iml" filepath="$PROJECT_DIR$/hellocharts-library/hellocharts-library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hellocharts-samples/hellocharts-samples.iml" filepath="$PROJECT_DIR$/hellocharts-samples/hellocharts-samples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zXingDemo/zXingDemo.iml" filepath="$PROJECT_DIR$/zXingDemo/zXingDemo.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/background"
+              android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/modImg"
+                android:layout_width="match_parent"
+                android:layout_height="210dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_height="180dp" >
+
+                    <com.aotuo.vegetable.util.MyGridView
+                        android:id="@+id/gridview"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:background="@color/white"
+                        android:horizontalSpacing="3dp"
+                        android:listSelector="@android:color/transparent"
+                        android:numColumns="3"
+                        android:stretchMode="columnWidth" >
+                        </com.aotuo.vegetable.util.MyGridView>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3px"
+                android:background="@color/line"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_list_height"
+                android:background="@color/list_item">
+
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:layout_marginRight="@dimen/gap"
+                    android:text="商品名称"/>
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/gap"
+                    android:layout_toRightOf="@id/txtName"
+                    android:background="@drawable/edit_background_1"
+                    android:imeOptions="actionNext"
+                    android:maxLength="30"
+                    android:singleLine="true"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3px"
+                android:background="@color/line"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_list_height"
+                android:background="@color/list_item">
+
+                <TextView
+                    android:id="@+id/txtWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:layout_marginRight="@dimen/gap"
+                    android:text="商品重量"/>
+
+                <EditText
+                    android:id="@+id/weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/edittext_height"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/txtWeight"
+                    android:background="@drawable/edit_background_1"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal"
+                    android:minWidth="100dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/gap"
+                    android:layout_toRightOf="@id/weight"
+                    android:text="公斤"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3px"
+                android:background="@color/line"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_list_height"
+                android:background="@color/list_item">
+
+                <TextView
+                    android:id="@+id/txtPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:layout_marginRight="@dimen/gap"
+                    android:text="商品价格"/>
+
+                <EditText
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/edittext_height"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/txtPrice"
+                    android:background="@drawable/edit_background_1"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal"
+                    android:minWidth="100dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/gap"
+                    android:layout_toRightOf="@id/price"
+                    android:text="元/公斤"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3px"
+                android:background="@color/line"/>
+
+            <RelativeLayout
+
+                android:id="@+id/areall"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_list_height"
+                android:background="@drawable/selectstyle">
+
+                <TextView
+                    android:textColor="#fff"
+                    android:id="@+id/txtArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/left_margin"
+                    android:layout_marginRight="@dimen/gap"
+                    android:text="商品产地"/>
+
+                <TextView
+                    android:id="@+id/area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/txtArea"
+                    android:drawableRight="@drawable/mine_to"
+                    android:layout_marginRight="@dimen/gap"
+                    android:minWidth="100dp"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3px"
+                android:background="@color/line"/>
+
+            <RelativeLayout
+                android:id="@+id/rltDesp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/list_item"
+                android:padding="@dimen/gap"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/txtfDespDesp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/gap"
+                    android:text="商品描述"/>
+
+                <EditText
+                    android:id="@+id/introduction"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/txtfDespDesp"
+                    android:background="@drawable/edit_background_1"
+                    android:gravity="top"
+                    android:hint="请输入商品描述"
+                    android:imeOptions="actionDone"
+                    android:maxLength="100"
+                    android:padding="5dp"/>
+            </RelativeLayout>
+
+            <CheckBox
+                android:id="@+id/showAll"
+                style="@style/RadioButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginLeft="@dimen/gap"
+                android:checked="false"
+                android:focusable="false"
+                android:text="   全网可见"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/rltDesp"
+                android:gravity="center"
+                android:padding="20dp">
+
+                <Button
+                    android:background="@drawable/buttonstyle"
+                    android:id="@+id/toCreate"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="生成商品"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+    <include layout="@layout/title_view"/>
+
+</LinearLayout>

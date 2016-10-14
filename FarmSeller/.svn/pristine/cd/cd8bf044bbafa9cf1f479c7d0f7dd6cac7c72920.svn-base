@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/backgroud"
+              android:orientation="vertical">
+
+    <include layout="@layout/title_view"/>
+
+    <ImageView
+        android:background="@drawable/saoma_step4"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/gap">
+
+
+        <View
+            android:id="@+id/line00"
+            android:layout_width="match_parent"
+            android:layout_height="0.2px"
+            android:background="@color/line"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/txtDate"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/goodsMZ"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+
+                android:textColor="#fff"
+                android:textSize="14sp"
+                android:text="商品名称："
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#fff" />
+            </LinearLayout>
+
+
+                <ImageView
+                    android:layout_below="@+id/goodsMZ"
+                    android:id="@+id/img"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/defaultimg"/>
+
+
+            <LinearLayout
+                android:layout_alignTop="@+id/img"
+                android:layout_below="@+id/goodsMZ"
+                android:id="@+id/unitprice"
+                android:layout_toRightOf="@+id/img"
+                android:gravity="right"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="#fff"
+                    android:textSize="14sp"
+                    android:text="单价："
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            <TextView
+                android:textSize="14sp"
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00元/公斤"
+                android:textColor="#fff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/ll_weight"
+               android:layout_toRightOf="@+id/img"
+                android:layout_below="@+id/unitprice"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="#fff"
+                    android:textSize="14sp"
+                    android:text="重量："
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="14sp"
+                android:id="@+id/weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="0公斤"
+                android:textColor="#fff" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/log"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="公斤公里"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+
+            <TextView
+
+                android:layout_alignBottom="@+id/img"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/ll_weight"
+                android:layout_toRightOf="@+id/img"
+                android:textSize="16sp"
+                android:id="@+id/total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center"
+                android:text="合计：0元"
+                android:textColor="#fff"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:textColor="#fff"
+            android:textSize="14sp"
+            android:text="交易时间："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2016-08-19 10:23"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3px"
+        android:background="@color/line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="摊位号："
+                android:textColor="@color/white"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/booth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="订单状态："
+                android:textColor="@color/white"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="交易市场："
+                android:textColor="@color/white"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:singleLine="true"
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="50dp"
+        android:text="交易成功！"
+        android:textColor="#ff0"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+
+
+    <Button
+        android:id="@+id/bt_payreturn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/selectstyle"
+        android:text="返回首页"
+        android:textColor="#fff"/>
+</LinearLayout>

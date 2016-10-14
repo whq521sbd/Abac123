@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/exit_dialog_bg"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:background="@drawable/saoma_step3"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/aotuo_hight_10"
+        android:text="请输入"/>
+
+    <RelativeLayout
+        android:layout_width="260dip"
+        android:layout_height="40dip"
+        android:layout_marginTop="10dip" >
+
+        <EditText
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/aotuo_hight_50"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/aotuo_hight_10"
+            android:layout_marginRight="@dimen/aotuo_hight_10"
+            android:background="@drawable/cannel_delete_background"
+            android:textCursorDrawable="@null"
+            android:maxLines="1"
+            android:maxLength="12"
+            android:paddingLeft="5dp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/contentPwd"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/aotuo_hight_50"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/aotuo_hight_10"
+            android:layout_marginRight="@dimen/aotuo_hight_10"
+            android:background="@drawable/cannel_delete_background"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:maxLength="12"
+            android:paddingLeft="5dp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="260dip"
+        android:layout_height="0.5dip"
+        android:layout_marginTop="30dip"
+        android:background="#dedfe0" />
+
+    <LinearLayout
+        android:layout_width="260dip"
+        android:layout_height="80dip"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/cannel"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dip"
+                android:layout_marginRight="5dip"
+                android:background="@drawable/cannel_delete_background"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/main_color"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ok"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/sure_clear_mylook"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

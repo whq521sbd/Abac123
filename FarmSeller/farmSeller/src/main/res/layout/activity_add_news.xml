@@ -1,0 +1,123 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/title_bar_color"
+    android:orientation="vertical"
+    tools:context=".act.AddNewsActivity" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/aotuo_hight_50"
+        android:background="@color/title_bar_color" >
+
+        <ImageView
+            android:id="@+id/add_news_back"
+            android:layout_width="@dimen/aotuo_hight_50"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:padding="@dimen/aotuo_hight_15"
+            android:src="@drawable/defaultreturn"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:text="发布新闻"
+            android:textColor="@color/black"
+            android:textSize="@dimen/aotuo_textsize_18" />
+
+        <TextView
+            android:id="@+id/news_add"
+            android:layout_width="@dimen/aotuo_hight_50"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:text="发布"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/aotuo_textsize_16" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/add_image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/add_image_no" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_above="@id/add_image_button"
+        android:layout_below="@+id/relativeLayout1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/aotuo_hight_40"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/aotuo_hight_15"
+                    android:gravity="center_vertical"
+                    android:text="标题 : "
+                    android:textColor="@color/my_classify"
+                    android:textSize="@dimen/aotuo_textsize_14" />
+
+                <EditText
+                    android:id="@+id/add_news_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/title_bar_color"
+                    android:gravity="center_vertical"
+                    android:paddingRight="@dimen/aotuo_hight_15"
+                    android:singleLine="true"
+                    android:textColor="@color/my_classify"
+                    android:textSize="@dimen/aotuo_textsize_14" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line" />
+
+            <EditText
+                android:id="@+id/add_news_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_bar_color"
+                android:gravity="top"
+                android:hint="请输入新闻内容"
+                android:minHeight="@dimen/aotuo_hight_80"
+                android:padding="@dimen/aotuo_hight_15"
+                android:textColor="@color/my_classify"
+                android:textSize="@dimen/aotuo_textsize_14" />
+
+            <ImageView
+                android:id="@+id/add_news_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/aotuo_hight_15"
+                android:layout_marginRight="@dimen/aotuo_hight_15" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

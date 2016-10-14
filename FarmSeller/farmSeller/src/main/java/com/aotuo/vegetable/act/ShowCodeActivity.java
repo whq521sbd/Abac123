@@ -1,0 +1,100 @@
+package com.aotuo.vegetable.act;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.aotuo.vegetable.R;
+import com.aotuo.vegetable.base.BaseActivity;
+import com.aotuo.vegetable.util.CommonTools;
+import com.aotuo.vegetable.util.CreateQRImageTest;
+import com.aotuo.vegetable.util.MyToast;
+import com.aotuo.vegetable.util.StringUtils;
+import com.aotuo.vegetable.view.TitleView;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+
+import java.util.HashMap;
+
+/**
+ * Created by 牛XX on 2016/9/8.
+ */
+public class ShowCodeActivity extends BaseActivity {
+    private TitleView titleView;
+    private ImageView codeImg;
+    private TextView orderText, tradename, tradeunitprice, tradeweight, tradetotal;
+    private String orderStr;
+    private String orderSn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.act_show_code);
+        orderStr = getIntent().getStringExtra("orderStr");
+        orderSn = getIntent().getStringExtra("orderSn");
+
+        codeImg = (ImageView) findViewById(R.id.codeImg);
+        orderText = (TextView) findViewById(R.id.orderText);
+        tradename = (TextView) findViewById(R.id.tradename);
+        tradeunitprice = (TextView) findViewById(R.id.tradeunitprice);
+        tradeweight = (TextView) findViewById(R.id.tradeweight);
+        tradetotal = (TextView) findViewById(R.id.tradetotal);
+        titleView = new TitleView();
+        titleView.initView(this, "订单二维码");
+
+        tradename.setText(getIntent().getStringExtra("name"));
+        tradeunitprice.setText(getIntent().getStringExtra("price"));
+        tradeweight.setText(getIntent().getStringExtra("weight"));
+        tradetotal.setText(getIntent().getStringExtra("total"));
+
+        createEmptCodeImg();
+        orderText.setText("订单号：" + orderSn);
+        getStatus();
+    }
+
+    private void createEmptCodeImg() {
+        CreateQRImageTest cqri = new CreateQRImageTest();
+        cqri.setImageView(codeImg);
+        if (!StringUtils.isEmpty(orderStr))
+            cqri.createQRImage(orderStr);
+        else
+            cqri.createQRImage("null");
+    }
+
+    private void getStatus() {
+        //参数：Token,transNum
+        HashMap<String, Object> param = new HashMap<String, Object>();
+        param.put("Token", CommonTools.getToken(this));
+        param.put("transNum", orderSn);
+        MainActivity.postRequest(1, sHandler, "/GoodsA/TransactionPayed", param);
+    }
+
+    private Handler sHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what == 1) {
+                if (msg.arg1 > 0) {
+                    boolean data = false;
+                    try {
+                        data = new Gson().fromJson(msg.obj.toString(), Boolean.class);
+                    } catch (JsonSyntaxException e) {
+                        e.printStackTrace();
+                    }
+                    if(data){
+                        sHandler.removeCallbacksAndMessages(null);
+                        MyToast.showToast(ShowCodeActivity.this, "交易已完成！", 2);
+                        finish();
+                        return;
+                    }
+                }
+                sHandler.removeCallbacksAndMessages(null);
+                sHandler.sendEmptyMessageDelayed(2, 2000);
+            } else if(msg.what == 2){
+                getStatus();
+            }
+        }
+    };
+}

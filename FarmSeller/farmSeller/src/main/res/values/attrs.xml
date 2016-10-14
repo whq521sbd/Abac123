@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Emojicon">
+        <attr name="emojiconSize" format="dimension"/>
+        <attr name="emojiconTextStart" format="integer"/>
+        <attr name="emojiconTextLength" format="integer"/>
+    </declare-styleable>
+    
+    <declare-styleable name="PullScrollView">
+        <attr name="header" format="reference" />
+        <attr name="headerHeight" format="dimension" />
+        <attr name="headerVisibleHeight" format="dimension" />
+    </declare-styleable>
+    
+    <declare-styleable name="CartPriceValue">
+        <attr name="value" format="reference|string" />
+        <attr name="textColor" format="reference|color" />
+        <attr name="textSize" format="reference|dimension" />
+        <attr name="moneySize" format="reference|dimension" />
+        <attr name="intSize" format="reference|dimension" />
+        <attr name="decimalSize" format="reference|dimension" />
+        <attr name="strike" format="boolean" />
+        <attr name="withEndZero" format="boolean" />
+    </declare-styleable>
+</resources>

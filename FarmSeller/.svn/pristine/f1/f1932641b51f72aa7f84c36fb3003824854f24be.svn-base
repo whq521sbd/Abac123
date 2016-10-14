@@ -1,0 +1,111 @@
+package com.aotuo.vegetable.main.fragment;
+
+import android.os.Bundle;
+import android.os.Message;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.aotuo.vegetable.R;
+import com.aotuo.vegetable.adapter.CarAdapter;
+import com.aotuo.vegetable.base.BaseFragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class CarFragment extends BaseFragment implements View.OnClickListener{
+
+    private LayoutInflater inflater;
+    private LinearLayout onlySell;
+    private ViewGroup container;
+    private Bundle savedInstanceState;
+    private View view;
+    private View titleGap;
+    private ListView  car_listview;
+    private CheckBox checkall;
+    private TextView tv_pay;
+
+    private ArrayList list ;
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        this.inflater = inflater;
+        this.container = container;
+        this.savedInstanceState = savedInstanceState;
+        if (view == null) {
+            view = inflater.inflate(R.layout.car_fragment, null);
+        }
+
+
+
+        ViewGroup parent = (ViewGroup) view.getParent();
+            if (parent != null) {
+            parent.removeView(view);
+        }
+
+//        “全选”复选框，监听
+        checkall = (CheckBox) view.findViewById(R.id.checkall);
+        checkall.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+            }
+        });
+
+        //结算
+        tv_pay = (TextView) view.findViewById(R.id.tv_pay);
+        tv_pay.setOnClickListener(this);
+
+
+//      1.初始化 listview
+        car_listview = (ListView) view.findViewById(R.id.car_listview);
+
+/**
+ * TODO:   2.没有接口，无法获取数据源
+ *
+ * */
+
+//      没有指定javabean泛型
+        list = new ArrayList();
+
+//        3.适配器装载数据源
+//        CarAdapter carAdapter = new CarAdapter(getActivity(),list);
+
+
+
+//        4.listview加载适配器
+//        car_listview.setAdapter(carAdapter);
+
+
+        return view;
+    }
+
+
+
+    @Override
+    public void handleCallBack(Message msg) {
+
+    }
+
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_pay:
+
+
+
+                break;
+            default:
+                break;
+
+        }
+    }
+}

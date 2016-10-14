@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <!-- 标题 -->
+    <RelativeLayout
+        android:id="@+id/Rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/title_bar_color">
+
+        <View
+            android:id="@+id/titleGap"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/aotuo_hight_40"
+            android:layout_below="@id/titleGap">
+
+            <TextView
+                android:id="@+id/car_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical"
+                android:text="购物车"
+                android:textColor="@color/title_font" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/car_title"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@+id/car_title"
+                android:gravity="right"
+                android:text="编辑"
+                android:textColor="#fff"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/mime_infrom"
+                android:layout_width="@dimen/aotuo_hight_50"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:clickable="true"
+                android:padding="15dip"
+                android:src="@drawable/mine_inform"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="14dip"
+                android:layout_height="14dip"
+                android:layout_alignRight="@+id/mime_infrom"
+                android:layout_alignTop="@+id/mime_infrom"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/inform_flag_icon"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="8sp"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <com.aotuo.vegetable.view.XListView
+        android:id="@+id/car_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Rl_title">
+
+    </com.aotuo.vegetable.view.XListView>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#fff">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/checkall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="全选" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="总计：" />
+
+
+            <TextView
+                android:id="@+id/tv_fullrate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:gravity="center_vertical"
+                android:text="0.00"
+                android:textColor="#ff0000" />
+
+            <TextView
+                android:id="@+id/tv_pay"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="#FF6537"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="结算" />
+        </LinearLayout>
+    </FrameLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,299 @@
+package com.aotuo.vegetable.act;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.text.InputType;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.aotuo.vegetable.R;
+import com.aotuo.vegetable.base.BaseActivity;
+import com.aotuo.vegetable.dialog.EditDialog;
+import com.aotuo.vegetable.entity.TransIDData;
+import com.aotuo.vegetable.util.CommonTools;
+import com.aotuo.vegetable.util.MyToast;
+import com.aotuo.vegetable.util.StaticDialog;
+import com.aotuo.vegetable.util.StringUtils;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+/**
+ * Created by 牛XX on 2016/9/19.
+ */
+
+public class BuyGoodsActivity extends BaseActivity implements View.OnClickListener{
+    private Button idenCode, toBuy;
+    private TextView editOrder, name, editPrice, editWeight, editTotal;
+    private TextView distance, fax, freight;
+    private EditText editIdenCode;
+    private EditDialog editDialog;
+    private String strOderCode = "erfwsf";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.act_buy);
+        String orderSn = getIntent().getStringExtra("OrderSn");
+        String title = getIntent().getStringExtra("name");
+        String price = getIntent().getStringExtra("price");
+        String weight = getIntent().getStringExtra("weight");
+        String total = getIntent().getStringExtra("total");
+        String sDis = getIntent().getStringExtra("dis");
+        String sFax = getIntent().getStringExtra("fax");
+        String sFre = getIntent().getStringExtra("fre");
+        initUI();
+        showOrder(orderSn, title, price, weight, total, sDis, sFax, sFre);
+    }
+
+
+        /**
+         * 初始化UI
+         *
+         */
+    private void initUI() {
+        // myDialog = DialogUtil.createDialog(getActivity(), "");
+        // myDialog.setCancelable(true);
+        // myDialog.show();
+        editOrder = (TextView) findViewById(R.id.editOrder);
+        editIdenCode = (EditText) findViewById(R.id.editIdenCode);
+        name = (TextView) findViewById(R.id.name);
+        editPrice = (TextView) findViewById(R.id.editPrice);
+        editWeight = (TextView) findViewById(R.id.editWeight);
+        editTotal = (TextView) findViewById(R.id.editTotal);
+        distance = (TextView) findViewById(R.id.distance);
+        fax = (TextView) findViewById(R.id.fax);
+        freight = (TextView) findViewById(R.id.freight);
+        toBuy = (Button) findViewById(R.id.toBuy);
+        idenCode = (Button) findViewById(R.id.idenCode);
+        toBuy.setOnClickListener(this);
+        idenCode.setOnClickListener(this);
+
+
+        editDialog = new EditDialog(this, R.style.MyDialogStyle,
+                "请输入交易密码", InputType.TYPE_TEXT_VARIATION_PASSWORD,
+                new EditDialog.DialogListener() {
+                    @Override
+                    public void onclick(View view) {
+                        switch (view.getId()) {
+                            case R.id.cannel: {
+                                editDialog.dismiss();
+                            }
+                            break;
+                            case R.id.ok: {
+                                String pwd = editDialog.returnString();
+                                if (StringUtils.isEmpty(pwd) || pwd.length() < 3) {
+                                    MyToast.showToast(BuyGoodsActivity.this, "请输入正确交易密码！", 2);
+                                } else {
+                                    toPay(pwd);
+                                }
+                                editDialog.dismiss();
+                            }
+                            break;
+                        }
+                    }
+                });
+    }
+
+    private String stringFromat(String s) {
+        if (StringUtils.isEmpty(s)) {
+            return "0.00";
+        }
+        String ts = s.replace(".", "A");
+        String[] ss = ts.split("A");
+        if (ss.length == 1) {
+            return ss[0] + ".00";
+        } else {
+            if (ss[1].length() == 1) {
+                return s + "0";
+            } else if (ss[1].length() == 2) {
+                return s;
+            } else {
+                return ss[0] + "." + ss[1].substring(0, 2);
+            }
+        }
+    }
+
+
+    /**
+     * 点击时间
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+            case R.id.toBuy: {//付款
+                if (CommonTools.getCheckTPWD(BuyGoodsActivity.this)) {
+                    StaticDialog sd = new StaticDialog();
+                    sd.init_dialog(editDialog);
+                    editDialog.clearEdit();
+                } else {
+                    toPay("");
+                }
+            }
+            break;
+
+            case R.id.idenCode: {//获取验证码
+                if (StringUtils.isEmpty(strOderCode)) {
+                    MyToast.showToast(BuyGoodsActivity.this, "请先获取订单信息！", 2);
+                    return;
+                }
+                getIdenCode();
+            }
+            break;
+
+            default:
+                break;
+        }
+    }
+
+    /**
+     * Token,Num(临时订单号),RandomCode,TransPwd,BuyerDevice,
+     * Token,Num(临时订单号),RandomCode,TransPwd,BuyerDevice,LogDis,LogMoney,LogRate,TotalMoney
+     * 参数：
+     */
+    private void toPay(String pwd) {
+        idenCode.setClickable(false);
+        HashMap<String, Object> param = new HashMap<String, Object>();
+        param.put("Token", CommonTools.getToken(BuyGoodsActivity.this));
+        param.put("Num", strOderCode);
+        param.put("RandomCode", editIdenCode.getText().toString());
+        param.put("TransPwd", CommonTools.md5(pwd));
+        param.put("BuyerDevice", CommonTools.getDeviceInfo(BuyGoodsActivity.this));
+
+        param.put("LogDis", distance.getText().toString());
+        param.put("LogRate", fax.getText().toString());
+        param.put("LogMoney", freight.getText().toString());
+        param.put("TotalMoney", editTotal.getText().toString());
+        MainActivity.postRequest(2, sHandler, "/GoodsA/TransAdd", param);
+    }
+
+    /**
+     * 参数：Token,Num(临时订单号)
+     */
+    private void getIdenCode() {
+        idenCode.setClickable(false);
+        HashMap<String, Object> param = new HashMap<String, Object>();
+        param.put("Token", CommonTools.getToken(BuyGoodsActivity.this));
+        param.put("Num", strOderCode);
+        MainActivity.postRequest(1, sHandler, "/GoodsA/TransCodeReSend", param);
+    }
+
+    private Handler sHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 1: { // 获取验证码
+                    if (msg.arg1 > 0) {
+                        TransIDData tid = null;
+                        try {
+                            tid = new Gson().fromJson(msg.obj.toString(), TransIDData.class);
+                        } catch (JsonSyntaxException e) {
+                            e.printStackTrace();
+                        }
+                        if (tid != null) {
+                            MyToast.showToast(BuyGoodsActivity.this, "获取验证码成功！", 2);
+                            delayHandler.removeCallbacksAndMessages(null);
+                            code = 0;
+                            delayHandler.sendEmptyMessageDelayed(12, 1000);
+                            idenCode.setTextColor(getResources().getColor(R.color.gray));
+                        } else {
+                            idenCode.setText("获取验证码");
+                            idenCode.setClickable(true);
+                            idenCode.setTextColor(getResources().getColor(R.color.black));
+                        }
+                    } else {
+                        idenCode.setClickable(true);
+                        idenCode.setTextColor(getResources().getColor(R.color.black));
+                        MyToast.showToast(BuyGoodsActivity.this, "获取验证码失败！", 2);
+                    }
+                }
+                break;
+                case 2: {
+                    if (msg.arg1 > 0) {
+                        clearShow();
+                        MyToast.showToast(BuyGoodsActivity.this, "付款成功！", 2);
+                        Intent intent = new Intent(BuyGoodsActivity.this, PayInfoActivity.class);
+                        ArrayList<String> ls = new ArrayList<String>();
+                        ls.add(msg.obj.toString());
+                        intent.putStringArrayListExtra("num", ls);
+                        startActivity(intent);
+                        setResult(RESULT_OK);
+                        finish();
+                    } else {
+                        if (msg.obj.toString() != null) {
+                            if (msg.obj.toString().contains("不存在"))
+                                clearShow();
+                        }
+                        MyToast.showToast(BuyGoodsActivity.this, msg.obj.toString(), 2);
+                    }
+                }
+                break;
+            }
+        }
+    };
+
+    private int code;
+    private Handler delayHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what == 12) {
+                if (code < 60) {
+                    code++;
+                    delayHandler.sendEmptyMessageDelayed(12, 1000);
+                    idenCode.setText("等待中..." + (60 - code));
+                } else {
+                    delayHandler.removeCallbacksAndMessages(null);
+                    idenCode.setText("获取验证码");
+                    idenCode.setClickable(true);
+                    idenCode.setTextColor(getResources().getColor(R.color.black));
+                }
+            }
+        }
+    };
+
+    /**
+     *
+     * @param OrderSn
+     * @param title
+     * @param price
+     * @param weight
+     * @param total
+     */
+    private void showOrder(String OrderSn,
+                           String title, String price, String weight, String total,
+                            String sDis, String sFax, String sFre) {
+        editOrder.setText(OrderSn);
+        name.setText(title);
+        editPrice.setText(price);
+        editWeight.setText(weight);
+        editTotal.setText(total);
+        distance.setText(sDis);
+        fax.setText(sFax);
+        freight.setText(sFre);
+        strOderCode = OrderSn;
+    }
+
+    private void clearShow(){
+        editPrice.setText("");
+        editWeight.setText("");
+        editTotal.setText("");
+        editOrder.setText("");
+        name.setText("");
+        strOderCode = "";
+    }
+    @Override
+    public void onDestroy() {
+        // 退出时销毁定位
+
+        // myDialog.dismiss();
+        super.onDestroy();
+    }
+
+}

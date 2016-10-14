@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroud"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_view"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/backgroudshape"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="商品名称:" />
+
+            <EditText
+                android:id="@+id/goodsName"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:hint="商品名称" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/selCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择城市:" />
+
+            <TextView
+                android:id="@+id/city"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/blackbackgroudshape"
+                android:drawablePadding="10dp"
+                android:drawableRight="@drawable/arrow"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/toSearcch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/buttonstyle"
+            android:padding="10dp"
+            android:text="查找" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/bt_toreturnhome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selectstyle"
+        android:padding="10dp"
+        android:text="返回首页"
+        android:textColor="#fff" />
+
+</RelativeLayout>
