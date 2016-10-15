@@ -157,7 +157,7 @@ public class BoothActivity extends BaseActivity implements View.OnClickListener{
             case R.id.sendMsg:{
                 Intent intent = new Intent(BoothActivity.this, ChatActivity.class);
                 intent.putExtra("RecID", oue.getNum());
-                intent.putExtra("RecName", oue.getUserName());
+                intent.putExtra("RecName", oue.getFullName());
                 intent.putExtra("curStatus", "buy");
                 intent.putExtra("otherHeadImg", oue.getHeadImg());
                 intent.putExtra("otherBooth", oue.getBooth());

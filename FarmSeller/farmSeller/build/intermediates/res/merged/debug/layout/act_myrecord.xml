@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:background="@color/c06c1ae"
+            android:background="@drawable/buttonstyle"
             android:layout_marginLeft="20dp"
             android:text="上一天" />
         <TextView
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
-            android:background="@color/c06c1ae"
+            android:background="@drawable/buttonstyle"
             android:layout_alignParentRight="true"
             android:text="下一天" />
     </RelativeLayout>
@@ -97,5 +97,7 @@
         android:divider="@color/line"
         android:dividerHeight="0.2px" >
     </com.aotuo.vegetable.view.XListView>
+
+
 
 </LinearLayout>

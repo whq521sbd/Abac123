@@ -24,6 +24,8 @@ public class LruCacheUtils {
 			};
 	}
 
+
+
 	public void clearCache() {
 		if (mMemoryCache != null) {
 			if (mMemoryCache.size() > 0) {

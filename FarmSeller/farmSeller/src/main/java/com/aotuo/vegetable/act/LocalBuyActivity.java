@@ -315,7 +315,14 @@ public class LocalBuyActivity extends BaseActivity implements View.OnClickListen
                 startActivity(intentN);
             }
             break;
-            case R.id.toBuy: {//付款
+            case R.id.toBuy: {//付款\
+
+//              修改小bug：如果订单为空，不能支付
+                if (oie==null){
+                    MyToast.showToast(this,"请先扫描二维码获取订单！",2);
+                    break;
+                }
+
                 float t = -1;
                 try {
                     t = Float.parseFloat(oie.getTotalPrice());
@@ -372,6 +379,7 @@ public class LocalBuyActivity extends BaseActivity implements View.OnClickListen
                 break;
             default:
                 break;
+
         }
     }
 
@@ -460,7 +468,7 @@ public class LocalBuyActivity extends BaseActivity implements View.OnClickListen
                 case 2: {
                     if (msg.arg1 > 0) {
                         clearShow();
-                        MyToast.showToast(LocalBuyActivity.this, "付款成功！", 2);
+                        MyToast.showToast(LocalBuyActivity.this, "买家付款成功！", 2);
                         Intent intent = new Intent(LocalBuyActivity.this, PayInfoActivity.class);
                         finish();
                         if(!StringUtils.isEmpty(msg.obj.toString())){

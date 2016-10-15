@@ -85,7 +85,7 @@ public class ShowCodeActivity extends BaseActivity {
                     }
                     if(data){
                         sHandler.removeCallbacksAndMessages(null);
-                        MyToast.showToast(ShowCodeActivity.this, "交易已完成！", 2);
+                        MyToast.showToast(ShowCodeActivity.this, "买家付款成功！", 2);
                         finish();
                         return;
                     }

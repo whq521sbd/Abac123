@@ -5,7 +5,7 @@ import com.comm.tools.a.HttpMain;
 
 public class FinalContent {
 	public static String FinalUrl = 
-	        "http://192.168.0.107:9066";
+	        "http://192.168.0.120:9066";
 
 
 	private static HttpMain httpMain = new HttpMain();

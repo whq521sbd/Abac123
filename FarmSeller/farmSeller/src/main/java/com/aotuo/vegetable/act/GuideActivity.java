@@ -26,9 +26,9 @@ import java.util.List;
 public class GuideActivity extends BaseActivity {
     private NetManager netManager;
     //private ImageView img1, img2, img3;
-    private ViewPager VP_guideviewpager;
-    private  View view01,view02,view03;
-    private List<View> viewlist;
+    //private ViewPager VP_guideviewpager;
+    //private  View view01,view02,view03;
+    //private List<View> viewlist;
     private TextView tv_into;
 
     //private LocationService locationService;
@@ -42,20 +42,20 @@ public class GuideActivity extends BaseActivity {
         img3 = (ImageView) findViewById(R.id.img3);
         img2.setVisibility(View.GONE);
         img3.setVisibility(View.GONE);*/
-        VP_guideviewpager = (ViewPager) findViewById(R.id.VP_guideviewpager);
+        //VP_guideviewpager = (ViewPager) findViewById(R.id.VP_guideviewpager);
         tv_into = (TextView) findViewById(R.id.tv_into);
-        LayoutInflater layoutInflater =getLayoutInflater();
-        view01 =  layoutInflater.inflate(R.layout.activity_guide1,null);
-        view02 =  layoutInflater.inflate(R.layout.activity_guide2,null);
-        view03 =  layoutInflater.inflate(R.layout.activity_guide3,null);
-        tv_into = (TextView) view03.findViewById(R.id.tv_into);
-        viewlist =  new ArrayList<View>();
+       // LayoutInflater layoutInflater =getLayoutInflater();
+       // view01 =  layoutInflater.inflate(R.layout.activity_guide1,null);
+        //view02 =  layoutInflater.inflate(R.layout.activity_guide2,null);
+        //view03 =  layoutInflater.inflate(R.layout.activity_guide3,null);
+        //tv_into = (TextView) view03.findViewById(R.id.tv_into);
+        //viewlist =  new ArrayList<View>();
 //        viewlist.add(view01);
 //        viewlist.add(view02);
-        viewlist.add(view03);
+        //viewlist.add(view03);
 
-        GuidePagerAdapter adapter =  new GuidePagerAdapter((ArrayList<View>) viewlist);
-        VP_guideviewpager.setAdapter(adapter);
+       // GuidePagerAdapter adapter =  new GuidePagerAdapter((ArrayList<View>) viewlist);
+       // VP_guideviewpager.setAdapter(adapter);
 
         tv_into.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,10 +86,10 @@ public class GuideActivity extends BaseActivity {
                 public void handleMessage(Message msg) {
                     super.handleMessage(msg);
                     if(!StringUtils.isEmpty(CommonTools.getToken(GuideActivity.this))){
-                        Intent intent = new Intent(GuideActivity.this,
-                                MainActivity.class);
-                        startActivity(intent);
-                        finish();
+                       // Intent intent = new Intent(GuideActivity.this,
+                         //       MainActivity.class);
+                        //startActivity(intent);
+                        //finish();
                     }
                 }
             }.sendEmptyMessageDelayed(1, 1000);

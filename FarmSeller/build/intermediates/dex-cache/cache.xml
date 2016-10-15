@@ -34,7 +34,7 @@
         jumboMode="true"
         optimize="true"
         revision="21.0.0"
-        sha1="e27d7b2b45ffff79d36b4677bd0c6d0168b13074">
+        sha1="dc51fb35fae99b7340db9ea12a6e2704b807bf99">
         <dex dex="D:\FarmSeller\farmSeller\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_9820713fb79b2368f2ca5100f4b8d712150f8197\classes.dex" />
     </item>
     <item
@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="21.0.0"
-        sha1="cde9620db9b6fb3467c0496a6dd371ccfddc3b10">
+        sha1="f4e93ea4ec8a5e7d4894ee1f83409e951b61dc64">
         <dex dex="D:\FarmSeller\farmSeller\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_5ac6ae62fa9189e173ce8ecbd8b72bed4aa1013e\classes.dex" />
     </item>
     <item

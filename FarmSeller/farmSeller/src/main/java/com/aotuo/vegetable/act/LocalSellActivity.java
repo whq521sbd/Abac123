@@ -712,7 +712,7 @@ public class LocalSellActivity extends BaseActivity implements View.OnClickListe
                             editor.putString("GoodsA", myGoodsA.toString());
                             editor.putString("orderCode", otd.getTransID());
                             editor.commit();
-                            MyToast.showToast(LocalSellActivity.this, "提交订单成功！", 2);
+                            MyToast.showToast(LocalSellActivity.this, "提交成功！", 2);
 
                             String weight = editWeight.getText().toString();
                             String totalPrice = editTotal.getText().toString();

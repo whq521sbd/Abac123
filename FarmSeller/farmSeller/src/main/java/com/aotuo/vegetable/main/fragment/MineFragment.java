@@ -1,6 +1,8 @@
 package com.aotuo.vegetable.main.fragment;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -25,6 +27,7 @@ import com.aotuo.vegetable.act.MyRecord;
 import com.aotuo.vegetable.base.BaseFragment;
 import com.aotuo.vegetable.entity.UserEntity;
 import com.aotuo.vegetable.util.CommonTools;
+import com.aotuo.vegetable.util.DialogUtil;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
@@ -139,6 +142,11 @@ public class MineFragment extends BaseFragment implements OnClickListener {
 
     }
 
+
+
+
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -166,7 +174,22 @@ public class MineFragment extends BaseFragment implements OnClickListener {
             }
             break;
             case R.id.exit: {
-                toExit();
+                //退出二次确认
+                AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());  //先得到构造器
+                builder.setTitle("提示"); //设置标题
+                builder.setMessage("是否确认退出?"); //设置内容
+                builder.setIcon(R.mipmap.ic_launcher);//设置图标，图片id即可
+                builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        toExit();
+                    }
+                });
+                builder.setNegativeButton("取消", null);
+                builder.create().show();
+
+
             }
             break;
             case R.id.statistics: {//数据统计

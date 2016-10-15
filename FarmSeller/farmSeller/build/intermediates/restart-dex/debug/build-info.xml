@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
     abi="armeabi-v7a,armeabi"
-    api-level="23"
-    density="xxxhdpi"
+    api-level="21"
+    density="xhdpi"
     format="8"
     plugin-version="2.2.1"
-    timestamp="13379814999794"
+    timestamp="27462682906981"
     token="-1749402556237991561"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
@@ -22,16 +22,15 @@
         name="verifier"
         duration="0" />
 
-    <artifact
-        location="D:\FarmSeller\farmSeller\build\outputs\apk\farmSeller-debug.apk"
-        type="MAIN" />
-
     <build
-        timestamp="13379814999794"
+        timestamp="26292418132552"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="D:\FarmSeller\farmSeller\build\outputs\apk\farmSeller-debug.apk"
             type="MAIN" />
     </build>
+    <build
+        timestamp="27462682906981"
+        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

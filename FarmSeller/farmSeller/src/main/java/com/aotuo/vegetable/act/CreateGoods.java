@@ -138,6 +138,7 @@ public class CreateGoods extends BaseActivity implements View.OnClickListener, V
             showAll.setVisibility(View.GONE);
 
         if (goodsA != null) {
+
             String[] arr = goodsA.getPic().split(",");
             for (int i = 0; i < arr.length; i++) {
                 String s = arr[i];

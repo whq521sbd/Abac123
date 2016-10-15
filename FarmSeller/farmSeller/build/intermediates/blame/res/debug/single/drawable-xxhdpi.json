@@ -24,12 +24,12 @@
         "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_spinner_ab_disabled_holo_dark.9.png"
     },
     {
-        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_search_api_holo_light.png",
-        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_ic_search_api_holo_light.png"
-    },
-    {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\mine_to.png",
         "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\mine_to.png"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_search_api_holo_light.png",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_ic_search_api_holo_light.png"
     },
     {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_spinner_ab_pressed_holo_light.9.png",
@@ -48,12 +48,12 @@
         "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\mine_order.png"
     },
     {
-        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_spinner_ab_focused_holo_dark.9.png",
-        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_spinner_ab_focused_holo_dark.9.png"
-    },
-    {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\dot_focus.png",
         "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\dot_focus.png"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_spinner_ab_focused_holo_dark.9.png",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_spinner_ab_focused_holo_dark.9.png"
     },
     {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_menu_hardkey_panel_holo_light.9.png",
@@ -72,12 +72,12 @@
         "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\camera_crop_height.png"
     },
     {
-        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_cab_background_bottom_holo_dark.9.png",
-        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_cab_background_bottom_holo_dark.9.png"
-    },
-    {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_cab_background_top_holo_light.9.png",
         "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_cab_background_top_holo_light.9.png"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_cab_background_bottom_holo_dark.9.png",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_cab_background_bottom_holo_dark.9.png"
     },
     {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_textfield_search_selected_holo_dark.9.png",
@@ -88,12 +88,12 @@
         "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\person.png"
     },
     {
-        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\com_facebook_button_send_icon.png",
-        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\com_facebook_button_send_icon.png"
-    },
-    {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ab_transparent_dark_holo.9.png",
         "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_ab_transparent_dark_holo.9.png"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\com_facebook_button_send_icon.png",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\com_facebook_button_send_icon.png"
     },
     {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\massage.png",
@@ -124,12 +124,12 @@
         "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\mine_background.png"
     },
     {
-        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_menu_dropdown_panel_holo_light.9.png",
-        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_menu_dropdown_panel_holo_light.9.png"
-    },
-    {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_list_pressed_holo_light.9.png",
         "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_menu_dropdown_panel_holo_light.9.png",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_menu_dropdown_panel_holo_light.9.png"
     },
     {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\defaultimg.9.png",
@@ -144,12 +144,12 @@
         "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\start_image2.png"
     },
     {
-        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ab_transparent_light_holo.9.png",
-        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_ab_transparent_light_holo.9.png"
-    },
-    {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\inform_hint.png",
         "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\inform_hint.png"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ab_transparent_light_holo.9.png",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_ab_transparent_light_holo.9.png"
     },
     {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\saoma_step2.png",
@@ -188,12 +188,12 @@
         "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\icon_addpic.png"
     },
     {
-        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\footer_homepage_normal.png",
-        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\footer_homepage_normal.png"
-    },
-    {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ab_stacked_solid_dark_holo.9.png",
         "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_ab_stacked_solid_dark_holo.9.png"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\footer_homepage_normal.png",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\footer_homepage_normal.png"
     },
     {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\error_pay.png",
@@ -372,12 +372,12 @@
         "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\add_image_no.png"
     },
     {
-        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\xsearch_loading.png",
-        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\xsearch_loading.png"
-    },
-    {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\footer_mine_focus.png",
         "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\footer_mine_focus.png"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\xsearch_loading.png",
+        "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\xsearch_loading.png"
     },
     {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_list_selector_disabled_holo_dark.9.png",
@@ -416,12 +416,12 @@
         "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_ab_share_pack_holo_dark.9.png"
     },
     {
-        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_spinner_ab_focused_holo_light.9.png",
-        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_spinner_ab_focused_holo_light.9.png"
-    },
-    {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_list_divider_holo_dark.9.png",
         "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_list_divider_holo_dark.9.png"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_spinner_ab_focused_holo_light.9.png",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_spinner_ab_focused_holo_light.9.png"
     },
     {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\guanggao2.png",
@@ -444,12 +444,12 @@
         "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_textfield_search_right_default_holo_light.9.png"
     },
     {
-        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_ab_back_holo_light.png",
-        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_ic_ab_back_holo_light.png"
-    },
-    {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\radio_h.png",
         "source": "D:\\FarmSeller\\farmSeller\\src\\main\\res\\drawable-xxhdpi\\radio_h.png"
+    },
+    {
+        "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_ab_back_holo_light.png",
+        "source": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_ic_ab_back_holo_light.png"
     },
     {
         "merged": "D:\\FarmSeller\\farmSeller\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_cab_background_bottom_holo_light.9.png",
